@@ -1,0 +1,26 @@
+:root {
+  --gap-xs: 5px;
+}
+
+body {
+  margin: 0;
+}
+header {
+  border: 2px solid black;
+}
+header > ul.menu-items-container {
+  padding: var(--gap-xs);
+}
+header > ul.menu-items-container > li.menu-item {
+  display: inline;
+  text-decoration: none;
+}
+
+header > ul.menu-items-container > li.menu-item-text {
+  float: right;
+  margin-right: var(--gap-xs);
+}
+header > ul.menu-items-container > li.menu-item-text:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
