@@ -12,6 +12,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  font-weight: 300;
   font-family: "Public Sans", sans-serif;
   font-size: $font-med;
   color: $grayishBlue;
@@ -23,7 +24,6 @@ a,
 a:visited,
 a:hover {
   text-decoration: none;
-  color: $grayishBlue;
 }
 //flexbox
 .flex {
@@ -37,4 +37,16 @@ a:hover {
   &-ai-c {
     align-items: center;
   }
+}
+
+//button
+button,
+.button {
+  padding: 1rem 1.875rem;
+  border: 0;
+  color: $white;
+  font-weight: 500;
+  background: linear-gradient(to right, $limeGreen, $brightCyan);
+  border-radius: 50px;
+  cursor: pointer;
 }
