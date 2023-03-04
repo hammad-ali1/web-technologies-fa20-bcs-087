@@ -50,3 +50,16 @@ button,
   border-radius: 50px;
   cursor: pointer;
 }
+
+//media queries
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
