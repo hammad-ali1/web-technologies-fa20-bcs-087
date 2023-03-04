@@ -102,6 +102,7 @@ button,
   display: block;
   position: absolute;
   height: 5px;
+  border-radius: 5px;
   background: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
   bottom: 0px;
   left: 0px;
@@ -123,4 +124,14 @@ button,
 }
 .header__button:hover {
   opacity: 0.75;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 1;
+  top: 3.75rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(hsl(233, 26%, 24%), transparent);
 }/*# sourceMappingURL=style.css.map */
