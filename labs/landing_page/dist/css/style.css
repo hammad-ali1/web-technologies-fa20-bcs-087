@@ -62,7 +62,7 @@ button,
 }
 
 .header nav {
-  padding: 24px;
+  padding: 1.0625rem 1.5rem;
 }
 .header__logo img {
   width: 8.8125rem;
@@ -78,9 +78,38 @@ button,
   margin-bottom: 3px;
 }
 .header__links a {
+  position: relative;
   font-size: 0.875rem;
   color: hsl(233, 8%, 62%);
+  transition: color 200ms ease-in-out;
 }
 .header__links a:not(:last-child) {
   margin-right: 32px;
+}
+.header__links a::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 5px;
+  background: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: -30px;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+.header__links a:hover {
+  color: hsl(233, 26%, 24%);
+}
+.header__links a:hover::before {
+  opacity: 1;
+}
+.header__button {
+  font-size: 0.875rem;
+  color: hsl(0, 0%, 100%);
+  transition: opacity 300ms ease-in-out;
+}
+.header__button:hover {
+  opacity: 0.75;
 }/*# sourceMappingURL=style.css.map */

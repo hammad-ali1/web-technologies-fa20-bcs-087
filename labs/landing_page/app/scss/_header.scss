@@ -1,6 +1,6 @@
 .header {
   nav {
-    padding: 24px;
+    padding: 1.0625rem 1.5rem;
   }
   &__logo {
     img {
@@ -21,11 +21,42 @@
   }
   &__links {
     a {
+      position: relative;
       font-size: $font-sm;
       color: $grayishBlue;
+      transition: color 200ms ease-in-out;
       &:not(:last-child) {
         margin-right: 32px;
       }
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 5px;
+        background: linear-gradient(to right, $limeGreen, $brightCyan);
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: -30px;
+        opacity: 0;
+        transition: opacity 200ms ease-in-out;
+      }
+      &:hover {
+        color: $darkBlue;
+        //add green border below link on hover
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__button {
+    font-size: $font-sm;
+    color: $white;
+    transition: opacity 300ms ease-in-out;
+    &:hover {
+      opacity: 0.75;
     }
   }
 }
