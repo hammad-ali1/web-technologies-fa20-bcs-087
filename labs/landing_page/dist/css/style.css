@@ -61,10 +61,6 @@ button,
   }
 }
 
-.header.open .overlay {
-  display: block;
-  animation: fade-in 300ms ease-in-out forwards;
-}
 .header.open .header__menu > span:first-child {
   transform: rotate(45deg);
 }
@@ -75,7 +71,7 @@ button,
   transform: rotate(-45deg);
 }
 .header .overlay {
-  display: none;
+  visibility: hidden;
   position: fixed;
   z-index: 1;
   top: 3.75rem;
@@ -142,9 +138,28 @@ button,
 
 @keyframes fade-in {
   from {
+    visibility: hidden;
     opacity: 0;
   }
   to {
+    visibility: visible;
     opacity: 1;
   }
+}
+.fade-in {
+  animation: fade-in 300ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: fade-out 300ms ease-in-out forwards;
 }/*# sourceMappingURL=style.css.map */
