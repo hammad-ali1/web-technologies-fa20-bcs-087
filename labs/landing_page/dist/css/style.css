@@ -191,4 +191,23 @@ button,
 }
 .fade-out {
   animation: fade-out 300ms ease-in-out forwards;
+}
+
+.hero__image {
+  position: relative;
+  background-image: url("../../images/bg-intro-mobile.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 17.5rem;
+}
+.hero__image::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-size: 93%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-image: url("../../images/image-mockups.png");
 }/*# sourceMappingURL=style.css.map */
