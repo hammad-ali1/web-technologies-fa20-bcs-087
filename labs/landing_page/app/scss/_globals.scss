@@ -45,15 +45,25 @@ a:hover {
 //button
 button,
 .button {
+  display: inline-block;
   padding: 0.75rem 2.3125rem;
   border: 0;
   color: $white;
+  font-size: $font-sm;
   font-weight: 500;
   background: linear-gradient(to right, $limeGreen, $brightCyan);
   border-radius: 50px;
+  transition: opacity 300ms ease-in-out;
   cursor: pointer;
+  &:hover {
+    opacity: 0.75;
+  }
 }
-
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
 //media queries
 .hide-for-mobile {
   @include breakpoint-down(medium) {
@@ -69,6 +79,5 @@ button,
 
 //generic container padding
 .main-container {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding: 2.25rem 1.5rem;
 }
