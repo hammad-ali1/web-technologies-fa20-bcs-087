@@ -309,6 +309,12 @@ p {
 
 .feature {
   background-color: hsl(220, 16%, 96%);
+  text-align: center;
+}
+@media (min-width: 40em) {
+  .feature {
+    text-align: left;
+  }
 }
 @media (min-width: 64em) {
   .feature__intro {
