@@ -14,7 +14,6 @@
     }
   }
   .overlay {
-    visibility: hidden;
     position: fixed;
     top: 3.75rem;
     left: 0;
@@ -48,13 +47,14 @@
   }
 
   &__menu {
-    border-radius: 3px;
+    border-radius: 5px;
     background: $white;
     padding: 1.625rem;
     position: absolute;
     width: calc(100% - 3rem);
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 1.5rem;
     a {
       color: $darkBlue;
       padding: 0.625rem;
