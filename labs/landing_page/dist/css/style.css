@@ -78,7 +78,6 @@ button,
 .header .overlay {
   visibility: hidden;
   position: fixed;
-  z-index: 1;
   top: 3.75rem;
   left: 0;
   right: 0;
@@ -105,8 +104,13 @@ button,
   margin-bottom: 3px;
 }
 .header__menu {
+  border-radius: 3px;
   background: hsl(0, 0%, 100%);
   padding: 1.625rem;
+  position: absolute;
+  width: calc(100% - 3rem);
+  left: 50%;
+  transform: translateX(-50%);
 }
 .header__menu a {
   color: hsl(233, 26%, 24%);
