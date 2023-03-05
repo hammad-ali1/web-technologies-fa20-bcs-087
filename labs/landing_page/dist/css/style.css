@@ -61,6 +61,11 @@ button,
   }
 }
 
+.main-container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .header.open .header__hamburger > span:first-child {
   transform: rotate(45deg);
 }
@@ -81,7 +86,8 @@ button,
   background-image: linear-gradient(hsl(233, 26%, 24%), transparent);
 }
 .header nav {
-  padding: 1.0625rem 1.5rem;
+  padding-top: 1.0625rem;
+  padding-bottom: 1.0625rem;
 }
 .header__logo img {
   width: 8.8125rem;
@@ -97,6 +103,16 @@ button,
 }
 .header__hamburger > span:not(:last-child) {
   margin-bottom: 3px;
+}
+.header__menu {
+  background: hsl(0, 0%, 100%);
+  padding: 1.625rem;
+}
+.header__menu a {
+  color: hsl(233, 26%, 24%);
+  padding: 0.625rem;
+  display: block;
+  text-align: center;
 }
 .header__links a {
   position: relative;
