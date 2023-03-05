@@ -1,4 +1,28 @@
 .header {
+  //Hamburger open styles
+  &.open {
+    .header__menu {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  .overlay {
+    position: fixed;
+    z-index: 1;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient($darkBlue, transparent);
+  }
+
   nav {
     padding: 1.0625rem 1.5rem;
   }
@@ -18,17 +42,6 @@
       transform-origin: 5px 2px;
       &:not(:last-child) {
         margin-bottom: 3px;
-      }
-    }
-    &.open {
-      > span:first-child {
-        transform: rotate(45deg);
-      }
-      > span:nth-child(2) {
-        opacity: 0;
-      }
-      > span:last-child {
-        transform: rotate(-45deg);
       }
     }
   }
@@ -73,14 +86,4 @@
       opacity: 0.75;
     }
   }
-}
-
-.overlay {
-  position: fixed;
-  z-index: 1;
-  top: 3.75rem;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: linear-gradient($darkBlue, transparent);
 }
