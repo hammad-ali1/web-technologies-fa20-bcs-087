@@ -13,21 +13,43 @@
     background-repeat: no-repeat;
     background-position: center center;
     min-height: 17.5rem;
+    @include breakpoint-up("medium") {
+      min-height: 25rem;
+    }
     @include breakpoint-up("large") {
       flex: 3;
       order: 2;
       min-height: 41rem;
-      background-image: url("../../images/bg-intro-desktop.svg");
+      background-image: none;
     }
+
+    //background svg
     &::before {
       position: absolute;
       height: 100%;
       width: 100%;
       content: "";
-      background-size: 93%;
+      background-size: 122%;
       background-repeat: no-repeat;
-      background-position: center bottom;
-      background-image: url("../../images/image-mockups.png");
+      background-position: 0% 83%;
+      background-image: url("../../images/bg-intro-desktop.svg");
+      @include breakpoint-up("large") {
+        width: 150%;
+      }
+    }
+    //mobile mockup
+    &::after {
+      @include breakpoint-up("large") {
+        content: "";
+        position: absolute;
+        height: 120%;
+        width: 120%;
+        background-repeat: no-repeat;
+        background-size: 94%;
+        background-position: center 150%;
+        left: 22%;
+        background-image: url("../../images/image-mockups.png");
+      }
     }
   }
   &__text {

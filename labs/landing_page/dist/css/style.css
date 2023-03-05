@@ -226,12 +226,17 @@ h3 {
   background-position: center center;
   min-height: 17.5rem;
 }
+@media (min-width: 40em) {
+  .hero__image {
+    min-height: 25rem;
+  }
+}
 @media (min-width: 64em) {
   .hero__image {
     flex: 3;
     order: 2;
     min-height: 41rem;
-    background-image: url("../../images/bg-intro-desktop.svg");
+    background-image: none;
   }
 }
 .hero__image::before {
@@ -239,10 +244,28 @@ h3 {
   height: 100%;
   width: 100%;
   content: "";
-  background-size: 93%;
+  background-size: 122%;
   background-repeat: no-repeat;
-  background-position: center bottom;
-  background-image: url("../../images/image-mockups.png");
+  background-position: 0% 83%;
+  background-image: url("../../images/bg-intro-desktop.svg");
+}
+@media (min-width: 64em) {
+  .hero__image::before {
+    width: 150%;
+  }
+}
+@media (min-width: 64em) {
+  .hero__image::after {
+    content: "";
+    position: absolute;
+    height: 120%;
+    width: 120%;
+    background-repeat: no-repeat;
+    background-size: 94%;
+    background-position: center 150%;
+    left: 22%;
+    background-image: url("../../images/image-mockups.png");
+  }
 }
 .hero__text {
   text-align: center;
