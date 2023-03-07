@@ -68,6 +68,10 @@
     }
     a {
       line-height: 2.25;
+      transition: color 200ms ease-in-out;
+      &:hover {
+        color: $limeGreen;
+      }
     }
   }
   &__button {

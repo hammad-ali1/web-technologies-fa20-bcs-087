@@ -513,6 +513,10 @@ p {
 }
 .footer__links a {
   line-height: 2.25;
+  transition: color 200ms ease-in-out;
+}
+.footer__links a:hover {
+  color: hsl(136, 65%, 51%);
 }
 @media (min-width: 64em) {
   .footer__button {
