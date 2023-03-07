@@ -435,21 +435,53 @@ p {
 
 .footer {
   background-color: hsl(233, 26%, 24%);
-  color: hsl(0, 0%, 100%);
+  color: hsl(233, 8%, 62%);
   padding: 2.5rem;
   text-align: center;
+}
+@media (min-width: 64em) {
+  .footer .main-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 2fr 1fr 1fr 3fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: "logo links1 links2 button" "social links1 links2 copyright";
+    text-align: left;
+    justify-items: start;
+  }
 }
 .footer a {
   color: hsl(0, 0%, 100%);
 }
 .footer__logo {
-  margin-bottom: 1.875rem;
   display: block;
 }
+@media (max-width: 63.9375em) {
+  .footer__logo {
+    margin-bottom: 1.875rem;
+  }
+}
+@media (min-width: 64em) {
+  .footer__logo {
+    grid-area: logo;
+  }
+}
 .footer__social {
-  margin-bottom: 1.875rem;
+  align-self: end;
+}
+@media (max-width: 63.9375em) {
+  .footer__social {
+    margin-bottom: 1.875rem;
+  }
+}
+@media (min-width: 64em) {
+  .footer__social {
+    grid-area: social;
+    align-self: end;
+  }
 }
 .footer__social a {
+  color: hsl(0, 0%, 100%);
   display: inline-block;
 }
 .footer__social a:not(:last-child) {
@@ -459,13 +491,48 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 0.9375rem;
+}
+@media (min-width: 64em) {
+  .footer__links {
+    align-items: start;
+  }
+}
+@media (min-width: 64em) {
+  .footer__links.col1 {
+    grid-area: links1;
+  }
 }
 .footer__links.col2 {
   margin-bottom: 1.875rem;
 }
+@media (min-width: 64em) {
+  .footer__links.col2 {
+    grid-area: links2;
+  }
+}
 .footer__links a {
   line-height: 2.25;
 }
-.footer__button {
-  margin-bottom: 1.875rem;
+@media (min-width: 64em) {
+  .footer__button {
+    grid-area: button;
+    justify-self: right;
+    text-align: right;
+  }
+}
+@media (max-width: 63.9375em) {
+  .footer__button button {
+    margin-bottom: 1.875rem;
+  }
+}
+.footer__copyright {
+  font-size: 0.8125rem;
+}
+@media (min-width: 64em) {
+  .footer__copyright {
+    grid-area: copyright;
+    align-self: end;
+    justify-self: end;
+  }
 }/*# sourceMappingURL=style.css.map */
