@@ -31,4 +31,22 @@ body {
   max-width: 100%;
   max-height: 100%;
   display: block;
+}
+.resume_bottom {
+  padding: 20px 30px;
+}
+.resume_item {
+  border-bottom: 1px solid #0175b2;
+  padding-bottom: 20px;
+}
+.resume_item .item_title {
+  text-transform: uppercase;
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+}
+.resume_item .item_info {
+  color: #84838b;
 }/*# sourceMappingURL=style.css.map */
