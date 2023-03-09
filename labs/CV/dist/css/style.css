@@ -33,11 +33,12 @@ body {
   display: block;
 }
 .resume_bottom {
-  padding: 20px 30px;
+  padding: 0 30px;
 }
 .resume_item {
   border-bottom: 1px solid #0175b2;
   padding-bottom: 20px;
+  margin-top: 20px;
 }
 .resume_item .item_title {
   text-transform: uppercase;
@@ -49,4 +50,10 @@ body {
 }
 .resume_item .item_info {
   color: #84838b;
+}
+.resume_item .item_subtitle {
+  color: hsl(0, 0%, 100%);
+}
+.resume_item .item_subtitle:not(:first-child) {
+  margin-top: 10px;
 }/*# sourceMappingURL=style.css.map */

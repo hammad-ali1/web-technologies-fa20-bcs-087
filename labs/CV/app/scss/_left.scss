@@ -11,11 +11,12 @@
     }
   }
   &_bottom {
-    padding: 20px 30px;
+    padding: 0 30px;
   }
   &_item {
     border-bottom: 1px solid $blue;
     padding-bottom: 20px;
+    margin-top: 20px;
     .item {
       &_title {
         text-transform: uppercase;
@@ -27,6 +28,12 @@
       }
       &_info {
         color: $gray;
+      }
+      &_subtitle {
+        color: $white;
+        &:not(:first-child) {
+          margin-top: 10px;
+        }
       }
     }
   }
