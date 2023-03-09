@@ -56,4 +56,22 @@ body {
 }
 .resume_item .item_subtitle:not(:first-child) {
   margin-top: 10px;
+}
+
+.resume_right {
+  padding: 20px 40px;
+  width: 75%;
+}
+.resume_namerole {
+  color: black;
+  text-transform: uppercase;
+}
+.resume_namerole .name {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 4px;
+}
+.resume_namerole .role {
+  font-size: 14px;
 }/*# sourceMappingURL=style.css.map */
