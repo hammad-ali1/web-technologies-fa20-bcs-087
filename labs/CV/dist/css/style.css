@@ -62,8 +62,43 @@ body {
   padding: 20px 40px;
   width: 75%;
 }
+.resume_right * {
+  color: black !important;
+}
+.resume_right .item_data {
+  display: flex;
+}
+.resume_right .item_data .year {
+  flex: 0.2;
+  position: relative;
+  padding-right: 35px;
+}
+.resume_right .item_data .year::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 1px solid #26252d;
+  border-radius: 50%;
+}
+.resume_right .item_data .year::after {
+  content: "";
+  position: absolute;
+  top: 17px;
+  right: 4px;
+  width: 3px;
+  height: 90%;
+  background: #0175b2;
+}
+.resume_right .item_data .content {
+  flex: 0.8;
+  padding-left: 35px;
+  margin-bottom: 20px;
+}
 .resume_namerole {
-  color: black;
   text-transform: uppercase;
 }
 .resume_namerole .name {
