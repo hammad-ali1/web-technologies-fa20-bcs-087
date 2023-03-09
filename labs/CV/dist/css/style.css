@@ -36,9 +36,11 @@ body {
   padding: 0 30px;
 }
 .resume_item {
-  border-bottom: 1px solid #0175b2;
   padding-bottom: 20px;
   margin-top: 20px;
+}
+.resume_item:not(:last-child) {
+  border-bottom: 1px solid #0175b2;
 }
 .resume_item .item_title {
   text-transform: uppercase;

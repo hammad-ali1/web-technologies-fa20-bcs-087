@@ -14,7 +14,9 @@
     padding: 0 30px;
   }
   &_item {
-    border-bottom: 1px solid $blue;
+    &:not(:last-child) {
+      border-bottom: 1px solid $blue;
+    }
     padding-bottom: 20px;
     margin-top: 20px;
     .item {
