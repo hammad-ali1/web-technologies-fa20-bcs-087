@@ -65,14 +65,14 @@
     }
   }
   &__links {
+    display: flex;
+    list-style: none;
     a {
       position: relative;
       font-size: $font-sm;
       color: $grayishBlue;
       transition: color 200ms ease-in-out;
-      &:not(:last-child) {
-        margin-right: 32px;
-      }
+      margin-right: 32px;
       &::before {
         content: "";
         display: block;
@@ -93,6 +93,26 @@
         &::before {
           opacity: 1;
         }
+      }
+    }
+    > li {
+      position: relative;
+    }
+    li > ul {
+      position: absolute;
+      border-radius: 5px;
+      display: none;
+      z-index: 2;
+      top: 70px;
+      background-color: white;
+      color: black;
+      box-shadow: 0 0 20px black;
+      list-style: none;
+      padding: 20px 40px;
+    }
+    li:hover {
+      ul {
+        display: block;
       }
     }
   }

@@ -177,13 +177,15 @@ p {
   display: block;
   text-align: center;
 }
+.header__links {
+  display: flex;
+  list-style: none;
+}
 .header__links a {
   position: relative;
   font-size: 0.875rem;
   color: hsl(233, 8%, 62%);
   transition: color 200ms ease-in-out;
-}
-.header__links a:not(:last-child) {
   margin-right: 32px;
 }
 .header__links a::before {
@@ -205,6 +207,24 @@ p {
 }
 .header__links a:hover::before {
   opacity: 1;
+}
+.header__links > li {
+  position: relative;
+}
+.header__links li > ul {
+  position: absolute;
+  border-radius: 5px;
+  display: none;
+  z-index: 2;
+  top: 70px;
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 20px black;
+  list-style: none;
+  padding: 20px 40px;
+}
+.header__links li:hover ul {
+  display: block;
 }
 
 .has-fade {
