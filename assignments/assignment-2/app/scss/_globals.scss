@@ -28,6 +28,7 @@ a,
 a:visited,
 a:hover {
   text-decoration: none;
+  color: inherit;
 }
 //flexbox
 .flex {
@@ -92,7 +93,7 @@ p {
 //media queries
 .hide-for-mobile {
   @include breakpoint-down(medium) {
-    display: none;
+    display: none !important;
   }
 }
 

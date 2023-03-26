@@ -27,6 +27,7 @@ a,
 a:visited,
 a:hover {
   text-decoration: none;
+  color: inherit;
 }
 
 .flex {
@@ -97,7 +98,7 @@ p {
 
 @media (max-width: 63.9375em) {
   .hide-for-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -162,6 +163,7 @@ p {
   margin-bottom: 3px;
 }
 .header__menu {
+  z-index: 1;
   border-radius: 5px;
   background: hsl(0, 0%, 100%);
   padding: 1.625rem;
@@ -216,12 +218,15 @@ p {
   border-radius: 5px;
   display: none;
   z-index: 2;
-  top: 70px;
+  top: 50px;
   background-color: white;
   color: black;
   box-shadow: 0 0 20px black;
   list-style: none;
-  padding: 20px 40px;
+  padding: 20px 20px;
+  width: 200px;
+  text-align: center;
+  left: -80px;
 }
 .header__links li:hover ul {
   display: block;

@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(rgb(100, 98, 98), transparent);
+  background: linear-gradient(to right, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
 }
 
 div.form-container {
@@ -17,6 +17,7 @@ form {
   background-color: rgb(239, 238, 238);
   padding: 30px;
   padding-top: 80px;
+  box-shadow: 0 0 20px black;
 
   border-radius: 10px;
 }
@@ -53,7 +54,7 @@ form input.success {
 
 form div.title {
   margin: 0;
-  background-color: var(--bs-gray-500);
+  background-color: var(--bs-gray-300);
   position: absolute;
   width: 100%;
   top: 0px;
