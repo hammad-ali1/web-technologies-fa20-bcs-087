@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
 }
-.t {
-  border: 1px solid red;
+
+/* navbar dropdown active on hover */
+.navbar .dropdown:hover .dropdown-menu {
+  display: block;
 }
