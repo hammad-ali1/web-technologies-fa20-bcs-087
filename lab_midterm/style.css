@@ -1,0 +1,6 @@
+* {
+  box-sizing: border-box;
+}
+.t {
+  border: 1px solid red;
+}
