@@ -116,7 +116,71 @@
         </div>
       </div>
     </section>
+    <buttton id="openModalBtn" class="btn btn-info">Open Modal Button</buttton>
 
+    <!-- Modal Start -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="recipieName" class="form-label">Recipie Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="recipieName"
+                placeholder="Name"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="recipieBody" class="form-label">Recipie Body</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="recipieBody"
+                placeholder="Body"
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button id="addRecipieBtn" type="button" class="btn btn-primary">
+              Add
+            </button>
+            <button
+              id="updateRecipieBtn"
+              type="button"
+              class="btn btn-primary d-none"
+            >
+              Update
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal End -->
     <!-- Add jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!-- Bootstrap script -->
