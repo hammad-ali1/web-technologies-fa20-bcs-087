@@ -5,6 +5,7 @@
 :root {
   --green: #00aa2f;
   --dark-blue: #242948;
+  --light-gray: #f4f4f4;
 }
 
 .green {
@@ -38,6 +39,10 @@
 }
 
 /* Tab section styles */
+.my-tabs .nav-item .nav-link.active {
+  background: white;
+}
+
 .tab-title {
   margin-bottom: 30px;
 }
@@ -131,4 +136,13 @@ footer a {
 .footer-end a {
   display: inline-block;
   margin-right: 5px;
+}
+
+/* card animation */
+.card {
+  transition: all 300ms ease-in-out;
+}
+
+.card.card-hover:hover {
+  transform: scale(1.05);
 }
