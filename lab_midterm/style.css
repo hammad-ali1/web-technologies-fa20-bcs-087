@@ -2,7 +2,133 @@
   box-sizing: border-box;
 }
 
+:root {
+  --green: #00aa2f;
+  --dark-blue: #242948;
+}
+
+.green {
+  color: var(--green);
+}
+.bg-green {
+  background-color: var(--green);
+}
+
+/* Navbar styling */
+.nav-item .nav-link,
+.nav-item .nav-link.active,
+.nav-item .dropdown-menu .dropdown-item {
+  color: var(--green);
+  font-size: 1.1rem;
+}
 /* navbar dropdown active on hover */
-.navbar .dropdown:hover .dropdown-menu {
+.navbar .dropdown:hover ul.dropdown-menu {
   display: block;
+}
+
+/* Hero styling */
+
+.hero-wrapper {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+.hero-title,
+.tab-title {
+  font-size: 2.2rem;
+}
+
+/* Tab section styles */
+.tab-title {
+  margin-bottom: 30px;
+}
+
+.my-link {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* choosing bykea styles */
+.choose .choose-title {
+  font-size: 1.3rem;
+}
+
+.choose-item {
+  margin-top: 25px;
+}
+.choose-item h3 {
+  font-weight: bolder;
+}
+.choose-item p {
+  font-size: 1.3rem;
+}
+
+/* Card features styling */
+.card-title {
+  font-size: 1.8rem;
+}
+.card a {
+  text-decoration: none;
+}
+
+.about .btn-info {
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 0.9rem;
+  font-weight: 600;
+  border: none;
+}
+
+/* testimonials styling */
+.testomnials h4 {
+  font-size: 1.1rem;
+}
+
+.testomnials .name {
+  font-weight: bold;
+}
+
+.testomnials .text-wrapper {
+  padding-top: 80px;
+  font-size: 1.4rem;
+}
+
+/* Footer styles */
+
+footer {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  background-color: var(--dark-blue);
+  color: white;
+}
+
+footer h4 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+footer a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 2px;
+}
+
+.footer-icons {
+  margin-left: 300px;
+}
+.footer-icons i {
+  font-size: 1.5rem;
+}
+.footer-icons i:not(--last-child) {
+  margin-right: 10px;
+}
+
+.footer-end {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-end a {
+  display: inline-block;
+  margin-right: 5px;
 }

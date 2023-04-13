@@ -27,7 +27,9 @@
     <header>
       <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">
+            <img src="./images/logo.svg" alt="" />
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -40,147 +42,307 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
               <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                <a class="nav-link dropdown-toggle" aria-current="page" href="#"
+                  >About</a
                 >
-                  Dropdown
-                </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider" /></li>
-                  <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                  </li>
+                  <li><a class="dropdown-item" href="#">About Us</a></li>
+                  <li><a class="dropdown-item" href="#">Social Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Social Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Social Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Social Impact</a></li>
+                  <li><a class="dropdown-item" href="#">Social Impact</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" aria-current="page" href="#"
+                  >Our Services</a
+                >
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Services</a></li>
+                  <li><a class="dropdown-item" href="#">Lorem</a></li>
+                  <li><a class="dropdown-item" href="#">Lorem</a></li>
+                  <li><a class="dropdown-item" href="#">Lorem</a></li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link disabled"
-                  href="#"
-                  tabindex="-1"
-                  aria-disabled="true"
-                  >Disabled</a
-                >
+                <a class="nav-link" aria-current="page" href="#">Partner</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Franchises</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Help Center</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#">Careers</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
+            <form class="d-flex ms-3">
+              <button class="btn btn-success bg-green" type="submit">
+                Contact Bykea
               </button>
             </form>
           </div>
         </div>
       </nav>
     </header>
-    <section>
+    <section class="hero bg-light">
       <div class="container-fluid">
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="card">
-              <h1>Testing</h1>
-              <i class="fa fa-globe" aria-hidden="true"></i>
-            </div>
+        <div class="col-8">
+          <div class="hero-wrapper">
+            <h1 class="green hero-title">
+              Bykea is your everyday, everything platform
+            </h1>
+            <p>
+              From helping you reach anywhere in the city at the lowest rates in
+              town to getting anything delivered to anyone anywhere in the city.
+              Bykea can do it all and more.
+            </p>
           </div>
-          <div class="col-4">
-            <div class="card">
-              <h1>Testing</h1>
-              <i class="fa fa-globe" aria-hidden="true"></i>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card">
-              <h1>Testing</h1>
-              <i class="fa fa-globe" aria-hidden="true"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="tabs">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="tab-wrapper">
+              <div class="row">
+                <div class="col-6">
+                  <h1 class="green tab-title">Ride</h1>
+                  <p>
+                    Bykea offers rides on motorbikes, rickshaws, and cars at the
+                    lowest fares in Karachi, Lahore and Islamabad. No matter
+                    what your destination is, a Bykea is always there for you.
+                    Let’s get moving.
+                  </p>
+                  <a href="#" class="green my-link">Read More</a>
+                </div>
+                <div class="col-6">
+                  <img class="img-fluid" src="./images/ride-tab.png" alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <buttton id="openModalBtn" class="btn btn-info">Open Modal Button</buttton>
 
-    <!-- Modal Start -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+    <section class="choose">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-6">
+            <img class="img-fluid" src="./images/choose.png" alt="" />
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="recipieName" class="form-label">Recipie Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="recipieName"
-                placeholder="Name"
-              />
+          <div class="col-6">
+            <h3 class="choose-title text-muted" class="text-muted">
+              WHY CHOOSE BYKEA?
+            </h3>
+            <div class="choose-item">
+              <h3>We prioritize your safety</h3>
+              <p>
+                All of our partners are tracked and undergo a thorough
+                background check to guarantee your safety.
+              </p>
             </div>
-            <div class="mb-3">
-              <label for="recipieBody" class="form-label">Recipie Body</label>
-              <textarea
-                type="text"
-                class="form-control"
-                id="recipieBody"
-                placeholder="Body"
-                rows="3"
-              ></textarea>
+
+            <div class="choose-item">
+              <h3>Maintain high quality standards</h3>
+              <p>
+                Your ratings and feedback help us ensure that you get the best
+                experience with Bykea every time.
+              </p>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button id="addRecipieBtn" type="button" class="btn btn-primary">
-              Add
-            </button>
-            <button
-              id="updateRecipieBtn"
-              type="button"
-              class="btn btn-primary d-none"
-            >
-              Update
-            </button>
+            <div class="choose-item">
+              <h3>Provide transparent pricing</h3>
+              <p>
+                Your ratings and feedback help us ensure that you get the best
+                experience with Bykea every time.
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- Modal End -->
+    </section>
+
+    <section class="feature-cards">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <div class="card shadow-lg">
+              <img src="./images/safe.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Safety</h5>
+                <p class="card-text">
+                  All of our partners hold a valid driver’s license, are tracked
+                  and undergo a thorough background check to guarantee your
+                  safety. Your trip is insured as a passenger and as a shipper.
+                </p>
+                <a href="#" class="green">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card shadow-lg">
+              <img src="./images/safe.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Safety</h5>
+                <p class="card-text">
+                  All of our partners hold a valid driver’s license, are tracked
+                  and undergo a thorough background check to guarantee your
+                  safety. Your trip is insured as a passenger and as a shipper.
+                </p>
+                <a href="#" class="green">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about mt-5">
+      <div class="container-fluid">
+        <h1>About Bykea</h1>
+        <div class="card shadow-lg">
+          <img src="./images/aboutus.jpg" class="card-img-top" />
+          <div class="card-body">
+            <p class="card-text">
+              We are on a journey to build affordable technology solutions that
+              will create income-generating opportunities for tens of thousands
+              in Pakistan, while addressing rampant challenges in the
+              transportation, logistics and payments sectors of the country.
+            </p>
+            <a href="#" class="btn btn-info">Learn More About Bykea</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-cards mt-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-6">
+            <div class="card shadow-lg">
+              <img src="./images/careers.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Careers at Bykea</h5>
+                <p class="card-text">
+                  All of our partners hold a valid driver’s license, are tracked
+                  and undergo a thorough background check to guarantee your
+                  safety. Your trip is insured as a passenger and as a shipper.
+                </p>
+                <a href="#" class="green">Read More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card shadow-lg">
+              <img src="./images/parenter.jpg" class="card-img-top" />
+              <div class="card-body">
+                <h5 class="card-title">Partner with Us</h5>
+                <p class="card-text">
+                  All of our partners hold a valid driver’s license, are tracked
+                  and undergo a thorough background check to guarantee your
+                  safety. Your trip is insured as a passenger and as a shipper.
+                </p>
+                <a href="#" class="green">Read More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testomnials mt-5">
+      <div class="container-fluid">
+        <h4 class="text-muted">CUSTOMERS SHARE THEIR EXPERIENCES</h4>
+        <h2>A community full of stories</h2>
+        <div class="row">
+          <div class="col-6">
+            <img class="fluid-img" src="./images/sundus.jpg" alt="" />
+          </div>
+          <div class="col-6">
+            <div class="text-wrapper">
+              <p>
+                "Very useful app. Highly satisfied with their services. Quick
+                response to any query and very helpful in case of any
+                complaint."
+              </p>
+              <p class="name">Sundus S.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="mt-5">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-5">
+            <img class="fluid-img" src="./images/logo-light.png" alt="" />
+            <p>Moving Pakistan forwards</p>
+
+            <div class="phone">
+              <i class="fa-solid fa-phone"></i> 021-23123-2
+            </div>
+            <div class="email">
+              <i class="fa-solid fa-envelope"></i> info@bykea.com
+            </div>
+          </div>
+          <div class="col-2">
+            <h4>About</h4>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+          </div>
+          <div class="col-2">
+            <h4>Products</h4>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+          </div>
+          <div class="col-2">
+            <h4>Bykea Partner</h4>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+            <a href="#">Footer Link</a>
+          </div>
+        </div>
+        <hr class="hr" />
+        <div class="footer-end">
+          <div>All Rights Reserved Bykea Pakistan</div>
+          <div>
+            <a href="">Privacy Policy</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Privacy Policy</a>
+          </div>
+          <div>
+            <div class="ms-auto footer-icons">
+              <i class="fa-brands fa-facebook"></i
+              ><i class="fa-brands fa-twitter"></i
+              ><i class="fa-brands fa-instagram"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- Add jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <!-- Bootstrap script -->
