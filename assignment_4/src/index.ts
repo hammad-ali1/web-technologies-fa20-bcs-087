@@ -47,6 +47,9 @@ if (sessionStore)
       resave: false,
       saveUninitialized: true,
       store: sessionStore,
+      cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 1, // 1 day
+      },
     })
   );
 else console.log("sessionStore is not defined");
@@ -59,12 +62,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 
+// middleware to track active link
 app.use((req, res, next) => {
   res.locals.activeLink = req.url;
   res.locals.convertDate = ddMMyyyy;
   next();
 });
-
+// make session variables available in views
+app.use((req, res, next) => {
+  // @ts-ignore
+  res.locals.user = req.session.user;
+  next();
+});
 // test protected route
 app.route("/protected").get(protect, (req, res) => {
   try {
@@ -79,6 +88,7 @@ app.use("/movies", movieRouter);
 app.use("/search", searchRouter);
 app.use("/users", userRouter);
 app.use("/shows", showRouter);
+
 // add view routes
 app.get("/signup", (req, res) => {
   res.render("signup");

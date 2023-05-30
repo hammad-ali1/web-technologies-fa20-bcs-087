@@ -80,6 +80,36 @@ export const getTokenByLogin = asyncHandler(async (req, res) => {
   }
 });
 
+export const addUserToSession = asyncHandler(async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    // find user and compare password
+    const user = await User.findOne({ username });
+    if (user && (await bcrypt.compare(password, user.password))) {
+      // @ts-ignore
+      req.session.user = user;
+      res.json({
+        user,
+      });
+    } else {
+      // user not found or incorrect password
+      res.status(401);
+      res.json({
+        type: "InvalidCredentials",
+        message: "Username or Password is invalid",
+      });
+    }
+  } catch (err: any) {
+    // handle errors
+    console.log(err);
+    res.status(401);
+    res.json({
+      type: "UnknownError",
+      message: "Unkown Error Occured",
+      error: err,
+    });
+  }
+});
 //generate JWT
 const generateToken = (id: string) => {
   return jwt.sign({ id }, process.env.JWT_SECRET_KEY!, { expiresIn: "10d" });
