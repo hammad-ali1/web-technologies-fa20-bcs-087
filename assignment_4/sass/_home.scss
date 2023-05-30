@@ -1,0 +1,58 @@
+.hero {
+  height: 300px;
+  max-width: 100%;
+  background: linear-gradient(
+      to right,
+      rgba($tmdbDarkBlue, 0.8) 0%,
+      rgba($tmdbDarkBlue, 0) 100%
+    ),
+    url("/assets/hero-img.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &-content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-text {
+    flex: 1 0 100%;
+  }
+  &-search {
+    flex: 1 0 100%;
+    display: flex;
+    position: relative;
+    input {
+      align-self: flex-start;
+    }
+    button {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+      height: 100%;
+    }
+  }
+}
+
+.trending-list {
+  height: 480px;
+  background: url("/assets/trending.svg");
+  background-position: 50% 200px;
+  background-repeat: no-repeat;
+}
+
+.join {
+  background-image: url("/assets/join.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  a {
+    text-decoration: none;
+    color: $light;
+  }
+}

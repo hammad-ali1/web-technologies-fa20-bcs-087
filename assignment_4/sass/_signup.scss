@@ -1,0 +1,9 @@
+.signup {
+  .form-control:focus {
+    border-color: $primary;
+    box-shadow: none;
+  }
+  #signupBtn {
+    flex: 1 0 100%;
+  }
+}

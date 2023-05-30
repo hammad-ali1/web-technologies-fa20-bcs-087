@@ -1,0 +1,24 @@
+<div class="card card-search shadow-sm mb-3">
+  <div class="wrapper">
+    <a class="card-thumb" href="/movies/<%=movie.id%>">
+      <img
+        src="http://image.tmdb.org/t/p/w220_and_h330_face/<%=movie.poster_path%>"
+        class="img-fluid rounded-start"
+      />
+    </a>
+    <div class="card-body">
+    <a class="card-title" href="/movies/<%=movie.id%>">
+      <h6 class="m-0"><%= movie.title %></h6>
+    </a>
+      <p class="card-text date">
+        <div class="text-muted">
+          <%= new Date(movie.release_date).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        }); %></div>
+      </p>
+      <p class="card-text overview"><%= movie.overview %></p>
+    </div>
+  </div>
+</div>

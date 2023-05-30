@@ -1,0 +1,83 @@
+<section class="hero v-center text-light">
+  <div class="container-fluid">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h2 class="display-4 fw-bolder">Welcome.</h2>
+        <h3>
+          Millions of movies, TV shows and people to discover. Explore now.
+        </h3>
+      </div>
+      <form action="/search" class="hero-search mt-3">
+        <input
+          name="query"
+          class="form-control hide-outline rounded-pill py-2 px-3"
+          type="text"
+          placeholder="Search for movie, tv show, person..."
+        />
+        <button type="submit" class="btn btn-info rounded-pill px-3">
+          Search
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="trending-list section-padding-top">
+  <div class="container-fluid">
+    <div class="movie-list">
+      <div class="list-header d-flex">
+        <h2 class="fs-4">Trending</h2>
+      </div>
+      <div class="scroller pt-3">
+        <% movies.results.forEach(item => { %> <%-
+        include('components/list-card', {item, hover:true, hideContent: false,
+        isShow : false}) %> <% })%>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trending-list section-padding-top">
+  <div class="container-fluid">
+    <div class="movie-list">
+      <div class="list-header d-flex">
+        <h2 class="fs-4">What's Popular</h2>
+      </div>
+      <div class="scroller pt-3">
+        <% shows.results.forEach(item => { %> <%-
+        include('components/list-card', {item, hover:true, hideContent: false,
+        isShow : true}) %> <% })%>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="join py-5 text-light v-center">
+  <div class="container-fluid">
+    <h2 class="h3 fw-bolder mb-3">Join Today</h2>
+    <div class="row">
+      <div class="col-6">
+        <p class="fs-5">
+          Get access to maintain your own <em>custom personal lists</em>,
+          <em>track what you've seen</em> and search and filter for
+          <em>what to watch next</em>—regardless if it's in theatres, on TV or
+          available on popular streaming services like Netflix, Amazon Prime
+          Video, Zee5, Sun Nxt, and Rooster Teeth.
+        </p>
+      </div>
+      <div class="col-6">
+        <ul>
+          <li>Enjoy TMDB ad free</li>
+          <li>Maintain a personal watchlist</li>
+          <li>
+            Filter by your subscribed streaming services and find something to
+            watch
+          </li>
+          <li>Log the movies and TV shows you've seen</li>
+          <li>Build custom lists</li>
+          <li>Contribute to and improve our database</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

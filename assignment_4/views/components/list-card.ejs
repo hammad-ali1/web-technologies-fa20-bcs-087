@@ -1,0 +1,18 @@
+<a
+  class="movie-card <% if(hover){ %> movie-card-hover <%}%>"
+  href='<%= isShow ? "/shows/"+item.id : "/movies/" + item.id%>'
+>
+  <img
+    src="http://image.tmdb.org/t/p/w220_and_h330_face/<%=item.poster_path%>"
+    class="img-fluid rounded"
+  />
+  <% if(hideContent === false){ %>
+  <div class="content pt-2 text-wrap">
+    <p class="m-0 p-0 fw-bold"><%= isShow ? item.name : item.title %></p>
+    <p class="m-0 text-muted fs-6">
+      <%=isShow ? convertDate(item.first_air_date) :
+      convertDate(item.release_date)%>
+    </p>
+  </div>
+  <%}%>
+</a>
