@@ -70,14 +70,13 @@ app.use((req, res, next) => {
 });
 // make session variables available in views
 app.use((req, res, next) => {
-  // @ts-ignore
   res.locals.user = req.session.user;
   next();
 });
 // test protected route
 app.route("/protected").get(protect, (req, res) => {
   try {
-    res.json({ protected: true, user: req.user });
+    res.json({ protected: true, user: res.locals.user });
   } catch (err) {
     res.json({ err });
   }

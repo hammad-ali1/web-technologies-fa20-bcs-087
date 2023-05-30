@@ -6,11 +6,3 @@ declare namespace ModelTypes {
     lastName: string;
   };
 }
-
-declare namespace Express {
-  interface Request {
-    user:
-      | (ModelTypes.User & { _id: import("mongoose").Types.ObjectId })
-      | undefined;
-  }
-}

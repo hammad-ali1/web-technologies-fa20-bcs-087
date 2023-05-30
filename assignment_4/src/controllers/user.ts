@@ -20,7 +20,6 @@ export const addUser = asyncHandler(async (req, res) => {
     const newUser = new User(user);
     await newUser.save();
     // attach user to session
-    // @ts-ignore
     req.session.user = newUser;
     res.json(newUser);
   } catch (err: any) {
@@ -89,7 +88,6 @@ export const addUserToSession = asyncHandler(async (req, res) => {
     // find user and compare password
     const user = await User.findOne({ username });
     if (user && (await bcrypt.compare(password, user.password))) {
-      // @ts-ignore
       req.session.user = user;
       res.json({
         user,
