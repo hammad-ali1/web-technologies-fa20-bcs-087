@@ -14,6 +14,8 @@ import userRouter from "@routers/user.routes";
 import showRouter from "@routers/show.routes";
 import { ddMMyyyy } from "./dateFunctions";
 const app = express();
+// add cors
+app.use(require("cors")());
 
 // connect mongo
 if (typeof process.env.MONGO_URI === "string") {
