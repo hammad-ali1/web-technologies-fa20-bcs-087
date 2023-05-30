@@ -19,6 +19,9 @@ export const addUser = asyncHandler(async (req, res) => {
     // create and save user
     const newUser = new User(user);
     await newUser.save();
+    // attach user to session
+    // @ts-ignore
+    req.session.user = newUser;
     res.json(newUser);
   } catch (err: any) {
     // handle errors
