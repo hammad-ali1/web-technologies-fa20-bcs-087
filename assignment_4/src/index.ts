@@ -3,6 +3,8 @@ dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import expressLayouts from "express-ejs-layouts";
+import session from "express-session";
+import MongoStore from "connect-mongo";
 // import middlewares
 import { protect } from "@middlewares/auth";
 //import routers
@@ -12,6 +14,42 @@ import userRouter from "@routers/user.routes";
 import showRouter from "@routers/show.routes";
 import { ddMMyyyy } from "./dateFunctions";
 const app = express();
+
+// connect mongo
+if (typeof process.env.MONGO_URI === "string") {
+  mongoose
+    .connect(process.env.MONGO_URI)
+    .then(() => {
+      console.log("mongo connected");
+    })
+    .catch((err) => {
+      console.log("mongo connection error");
+    });
+} else {
+  console.log("MONGO_URI is not defined");
+}
+
+// create session store
+let sessionStore = null;
+if (typeof process.env.MONGO_URI === "string") {
+  sessionStore = MongoStore.create({
+    mongoUrl: process.env.MONGO_URI,
+    collectionName: "sessions",
+  });
+} else {
+  console.log("MONGO_URI is not defined");
+}
+// session middleware
+if (sessionStore)
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET!,
+      resave: false,
+      saveUninitialized: true,
+      store: sessionStore,
+    })
+  );
+else console.log("sessionStore is not defined");
 
 // set view engine
 app.set("view engine", "ejs");
@@ -48,20 +86,6 @@ app.get("/signup", (req, res) => {
 app.get("/", (req, res) => {
   res.redirect("/movies");
 });
-
-// connect mongo
-if (typeof process.env.MONGO_URI === "string") {
-  mongoose
-    .connect(process.env.MONGO_URI)
-    .then(() => {
-      console.log("mongo connected");
-    })
-    .catch((err) => {
-      console.log("mongo connection error");
-    });
-} else {
-  console.log("MONGO_URI is not defined");
-}
 
 // start server
 app.listen(process.env.PORT, () => {
