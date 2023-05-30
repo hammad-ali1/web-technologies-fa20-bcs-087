@@ -74,9 +74,6 @@ footer {
 }
 
 // hide form-control outline
-.form-control.hide-outline {
-  &:focus {
-    box-shadow: none;
-    outline: none;
-  }
+.form-control:focus {
+  box-shadow: none !important;
 }
