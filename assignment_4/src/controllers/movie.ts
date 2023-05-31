@@ -6,7 +6,11 @@ export const getMovies = asyncHandler(async (req, res) => {
   try {
     const movies = await api.fetchTrendingMovies(1, "day");
     const shows = await api.fetchTrendingShows(1, "day");
-    res.render("index", { movies, shows });
+    let favs: any = [];
+    if (req.session.user) {
+      favs = await Movie.find({ user_id: req.session.user._id });
+    }
+    res.render("index", { movies, shows, favs });
   } catch (err) {
     console.log(err);
   }
