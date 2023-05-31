@@ -38,12 +38,19 @@ footer {
 
 .movie-card {
   flex: 1 0 150px;
+  position: relative;
+  .fav-icon {
+    position: absolute;
+    right: 2px;
+    &:hover {
+      cursor: pointer;
+      color: red;
+    }
+  }
   &-hover {
     &:hover {
       transition: all 200ms ease-in-out;
-      transform: scale(1.05);
       @extend .shadow-lg;
-      @extend .text-info;
     }
   }
   text-decoration: none;

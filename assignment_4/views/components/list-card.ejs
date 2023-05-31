@@ -2,6 +2,11 @@
   class="movie-card <% if(hover){ %> movie-card-hover <%}%>"
   href='<%= isShow ? "/shows/"+item.id : "/movies/" + item.id%>'
 >
+  <% if (user) { %>
+  <div class="fav-icon">
+    <i class="fa-regular fa-heart"></i>
+  </div>
+  <% } %>
   <img
     src="http://image.tmdb.org/t/p/w220_and_h330_face/<%=item.poster_path%>"
     class="img-fluid rounded"

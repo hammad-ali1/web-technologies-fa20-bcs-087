@@ -3,6 +3,7 @@ import * as $ from "jquery";
 
 $(function registerHandlers() {
   handlers.submitSignupFormHandler();
+  handlers.favMovieHandler();
 });
 
 // @ts-ignore
