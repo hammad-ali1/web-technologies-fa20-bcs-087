@@ -3,9 +3,11 @@
   href='<%= isShow ? "/shows/"+item.id : "/movies/" + item.id%>'
 >
   <% if (user) { %>
-  <div class="fav-icon">
-    <i class="fa-regular fa-heart"></i>
-  </div>
+  <form method="post" action="<%= isShow ? "#"+item.id : "/movies/fav/" + item.id%>">
+    <button type="submit" class="btn border-0 fav-icon">
+      <i class="fa-regular fa-heart"></i>
+    </button>
+  </form>
   <% } %>
   <img
     src="http://image.tmdb.org/t/p/w220_and_h330_face/<%=item.poster_path%>"

@@ -1,5 +1,6 @@
 import asyncHandler from "express-async-handler";
 import api from "@api/moviedb";
+import Movie from "@models/movie";
 
 export const getMovies = asyncHandler(async (req, res) => {
   try {
@@ -14,4 +15,11 @@ export const getMovies = asyncHandler(async (req, res) => {
 export const getMovie = asyncHandler(async (req, res) => {
   const movie = await api.fetchMovie(req.params.id);
   res.render("movie", { movie });
+});
+
+export const addToFavs = asyncHandler(async (req, res) => {
+  const movie = await api.fetchMovie(req.params.id);
+  const favMovie = new Movie(movie);
+  favMovie.save();
+  res.json({ success: true, movie: favMovie });
 });
