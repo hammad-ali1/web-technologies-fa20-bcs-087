@@ -18,8 +18,13 @@ export const getMovie = asyncHandler(async (req, res) => {
 });
 
 export const addToFavs = asyncHandler(async (req, res) => {
-  const movie = await api.fetchMovie(req.params.id);
-  const favMovie = new Movie(movie);
-  favMovie.save();
-  res.json({ success: true, movie: favMovie });
+  if (req.session.user) {
+    const movie = await api.fetchMovie(req.params.id);
+    let favMovie = new Movie(movie);
+    favMovie.user_id = req.session.user._id;
+    favMovie.save();
+    res.json({ success: true, movie: favMovie });
+  } else {
+    res.status(401).json({ success: false, msg: "Unauthorized" });
+  }
 });
