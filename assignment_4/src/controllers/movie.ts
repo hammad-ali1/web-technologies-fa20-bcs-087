@@ -28,3 +28,12 @@ export const addToFavs = asyncHandler(async (req, res) => {
     res.status(401).json({ success: false, msg: "Unauthorized" });
   }
 });
+
+export const getAllFavs = asyncHandler(async (req, res) => {
+  if (req.session.user) {
+    const movies = await Movie.find({ user_id: req.session.user._id });
+    res.render("favs", { movies });
+  } else {
+    res.status(401).json({ success: false, msg: "Unauthorized" });
+  }
+});

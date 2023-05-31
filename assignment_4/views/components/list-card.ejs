@@ -2,7 +2,7 @@
   class="movie-card <% if(hover){ %> movie-card-hover <%}%>"
   href='<%= isShow ? "/shows/"+item.id : "/movies/" + item.id%>'
 >
-  <% if (user) { %>
+  <% if (user && !isShow) { %>
   <form method="post" action="<%= isShow ? "#"+item.id : "/movies/fav/" + item.id%>">
     <button type="submit" class="btn border-0 fav-icon">
       <i class="fa-regular fa-heart"></i>
