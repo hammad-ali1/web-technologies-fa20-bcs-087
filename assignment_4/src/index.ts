@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import flash from "connect-flash";
 // import middlewares
 import { protect } from "@middlewares/auth";
 //import routers
@@ -63,6 +64,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
+app.use(flash());
 
 // middleware to track active link
 app.use((req, res, next) => {
