@@ -89,7 +89,8 @@ export const addUserToSession = asyncHandler(async (req, res) => {
     const user = await User.findOne({ username });
     if (user && (await bcrypt.compare(password, user.password))) {
       req.session.user = user;
-      res.redirect("/");
+      req.flash("success", "Logged in successfully");
+      res.redirect("/movies");
     } else {
       // user not found or incorrect password
       res.status(401);

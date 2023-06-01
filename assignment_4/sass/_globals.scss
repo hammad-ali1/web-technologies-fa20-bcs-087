@@ -82,8 +82,9 @@ footer {
 
 .flash-msgs {
   position: absolute;
-  top: 0;
-  right: 0;
+  display: hidden;
+  top: 10px;
+  right: 10px;
   width: 400px;
 }
 // hide form-control outline
