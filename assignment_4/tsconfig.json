@@ -13,7 +13,8 @@
       "@api/*": ["api/*"],
       "@models/*": ["models/*"],
       "@controllers/*": ["controllers/*"],
-      "@middlewares/*": ["middlewares/*"]
+      "@middlewares/*": ["middlewares/*"],
+      "@validations/*": ["validations/*"]
     }
   },
   "ts-node": {

@@ -1,8 +1,10 @@
 import asyncHandler from "express-async-handler";
 import User from "@models/user";
+import { updateUserSchema } from "@validations/updateUser";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Error } from "mongoose";
+import Joi from "joi";
 
 export const getUsers = asyncHandler(async (req, res) => {
   const users = await User.find();
@@ -53,15 +55,16 @@ export const addUser = asyncHandler(async (req, res) => {
 });
 
 export const updateUser = asyncHandler(async (req, res) => {
-  const userid = req.params.id;
-  const previousPassword = req.body.prevPassword;
-  if (!previousPassword) {
-    req.flash("error", "Please enter your previous password");
-    res.redirect("/user");
-    return;
-  }
-  const user = await User.findById(userid);
-  if (user) {
+  try {
+    await updateUserSchema.validateAsync(req.body);
+    const userid = req.params.id;
+    const user = await User.findById(userid);
+    if (!user) {
+      req.flash("error", "User not found");
+      res.redirect("/user");
+      return;
+    }
+    const previousPassword = req.body.prevPassword;
     const isMatch = await bcrypt.compare(previousPassword, user.password);
     if (!isMatch) {
       req.flash("error", "Previous password is incorrect");
@@ -76,8 +79,12 @@ export const updateUser = asyncHandler(async (req, res) => {
     user.save();
     req.flash("success", "User updated successfully");
     res.redirect("/user");
-  } else {
-    res.json({ message: "User not found" });
+  } catch (err) {
+    if (Joi.isError(err))
+      err.details.forEach((detail) => {
+        req.flash("error", detail.message);
+      });
+    res.redirect("/user");
   }
 });
 
