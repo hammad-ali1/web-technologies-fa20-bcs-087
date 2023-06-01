@@ -14,7 +14,6 @@ export const getMovies = asyncHandler(async (req, res) => {
       movies,
       shows,
       favs,
-      messages: req.flash("success"),
     });
   } catch (err) {
     console.log(err);

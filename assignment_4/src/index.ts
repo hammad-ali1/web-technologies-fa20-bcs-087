@@ -66,10 +66,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 app.use(flash());
 
-// middleware to track active link
+// middleware for local variables
 app.use((req, res, next) => {
   res.locals.activeLink = req.url;
   res.locals.convertDate = ddMMyyyy;
+  res.locals.messages = req.flash("success") || [];
   next();
 });
 // make session variables available in views
