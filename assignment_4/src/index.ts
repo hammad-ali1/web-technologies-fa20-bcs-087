@@ -76,6 +76,7 @@ app.use((req, res, next) => {
   res.locals.errors = req.flash("error") || [];
   next();
 });
+
 // make session variables available in views
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
@@ -115,6 +116,11 @@ app.get("/logout", (req, res) => {
   res.redirect("/movies");
 });
 
+// @ts-ignore
+app.use((err, req, res, next) => {
+  res.render("error", { message: err.message, type: "Internal Server Error" });
+  next();
+});
 // start server
 app.listen(process.env.PORT, () => {
   console.log(`Server started at http://localhost:${process.env.PORT}`);

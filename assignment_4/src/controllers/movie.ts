@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import api from "@api/moviedb";
 import Movie from "@models/movie";
+import { AxiosError } from "axios";
 
 export const getMovies = asyncHandler(async (req, res) => {
   try {
@@ -16,7 +17,12 @@ export const getMovies = asyncHandler(async (req, res) => {
       favs,
     });
   } catch (err) {
-    console.log(err);
+    if (err instanceof AxiosError) {
+      req.flash("error", err.message);
+      res.render("error", { message: err.message, type: "Axios Error" });
+    } else {
+      throw err;
+    }
   }
 });
 

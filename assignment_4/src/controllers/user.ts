@@ -73,6 +73,9 @@ export const updateUser = asyncHandler(async (req, res) => {
         req.flash("error", detail.message);
       });
       res.redirect("/user");
+    } else {
+      req.flash("error", "Server Error Occured");
+      res.redirect("/user");
     }
   }
 });
@@ -96,6 +99,9 @@ export const sessionLogin = asyncHandler(async (req, res) => {
       err.details.forEach((detail) => {
         req.flash("error", detail.message);
       });
+      res.redirect("/login");
+    } else {
+      req.flash("error", "Server Error Occured");
       res.redirect("/login");
     }
   }
