@@ -80,6 +80,11 @@ app.use("/users", userRouter);
 app.use("/shows", showRouter);
 app.use("/", viewsRouter);
 
+// index route
+app.get("/", (req, res) => {
+  res.redirect("/movies");
+});
+
 // add default error handler
 // @ts-ignore
 app.use((err, req, res, next) => {

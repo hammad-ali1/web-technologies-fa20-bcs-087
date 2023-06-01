@@ -15,10 +15,6 @@ viewsRouter.get("/user", (req, res) => {
   res.render("user");
 });
 
-viewsRouter.get("/", (req, res) => {
-  res.redirect("/movies");
-});
-
 viewsRouter.get("/logout", (req, res) => {
   req.session.user = null;
   req.flash("success", "Logged out successfully");
