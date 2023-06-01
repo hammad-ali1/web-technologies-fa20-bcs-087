@@ -140,6 +140,20 @@
       </div>
     </div>
   </footer>
+
+  <section class="flash-msgs">
+    <% messages.forEach(msg => { %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button
+        type="button"
+        class="btn-close"
+      >
+      </button>
+    </div>
+    <% }) %>
+  </section>
+
   </body>
   </html>
   
