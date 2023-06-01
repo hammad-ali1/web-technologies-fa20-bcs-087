@@ -14,7 +14,8 @@
       "@models/*": ["models/*"],
       "@controllers/*": ["controllers/*"],
       "@middlewares/*": ["middlewares/*"],
-      "@validations/*": ["validations/*"]
+      "@validations/*": ["validations/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "ts-node": {

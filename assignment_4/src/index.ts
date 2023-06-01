@@ -8,13 +8,14 @@ import MongoStore from "connect-mongo";
 import morgan from "morgan";
 import flash from "connect-flash";
 // import middlewares
-import { protect } from "@middlewares/auth";
+import { appendLocals } from "@middlewares/locals";
 //import routers
 import movieRouter from "@routers/movie.routes";
 import searchRouter from "@routers/search.routes";
 import userRouter from "@routers/user.routes";
 import showRouter from "@routers/show.routes";
-import { ddMMyyyy } from "./dateFunctions";
+import viewsRouter from "@routers/show.routes";
+
 const app = express();
 // add cors
 app.use(require("cors")());
@@ -33,7 +34,7 @@ if (typeof process.env.MONGO_URI === "string") {
   console.log("MONGO_URI is not defined");
 }
 
-// create session store
+// create connect-mongo session store
 let sessionStore = null;
 if (typeof process.env.MONGO_URI === "string") {
   sessionStore = MongoStore.create({
@@ -60,7 +61,8 @@ else console.log("sessionStore is not defined");
 
 // set view engine
 app.set("view engine", "ejs");
-// add middlewares
+
+// add third-party middlewares
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -68,55 +70,23 @@ app.use(expressLayouts);
 app.use(flash());
 app.use(morgan("tiny"));
 
-// middleware for local variables
-app.use((req, res, next) => {
-  res.locals.activeLink = req.url;
-  res.locals.user = req.session.user || {};
-  res.locals.convertDate = ddMMyyyy;
-  res.locals.messages = req.flash("success") || [];
-  res.locals.errors = req.flash("error") || [];
-  next();
-});
-
-// test protected route
-app.route("/protected").get(protect, (req, res) => {
-  try {
-    res.json({ protected: true, user: res.locals.user });
-  } catch (err) {
-    res.json({ err });
-  }
-});
+// add custom middlewares
+app.use(appendLocals);
 
 // add routers
 app.use("/movies", movieRouter);
 app.use("/search", searchRouter);
 app.use("/users", userRouter);
 app.use("/shows", showRouter);
+app.use("/", viewsRouter);
 
-// add view routes
-app.get("/signup", (req, res) => {
-  res.render("signup");
-});
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-app.get("/user", (req, res) => {
-  res.render("user");
-});
-app.get("/", (req, res) => {
-  res.redirect("/movies");
-});
-app.get("/logout", (req, res) => {
-  req.session.user = null;
-  req.flash("success", "Logged out successfully");
-  res.redirect("/movies");
-});
-
+// add default error handler
 // @ts-ignore
 app.use((err, req, res, next) => {
   res.render("error", { message: err.message, type: "Internal Server Error" });
   next();
 });
+
 // start server
 app.listen(process.env.PORT, () => {
   console.log(`Server started at http://localhost:${process.env.PORT}`);
