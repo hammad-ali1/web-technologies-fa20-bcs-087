@@ -1,10 +1,11 @@
 import asyncHandler from "express-async-handler";
 import User from "@models/user";
-import { updateUserSchema } from "@validations/updateUser";
-import { signupFormSchema } from "@validations/signupForm";
-
+import {
+  updateUserSchema,
+  signupFormSchema,
+  loginFormSchema,
+} from "@validations/user";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 import Joi from "joi";
 
 export const getUsers = asyncHandler(async (req, res) => {
@@ -14,8 +15,8 @@ export const getUsers = asyncHandler(async (req, res) => {
 
 export const addUser = asyncHandler(async (req, res) => {
   // get user object from req body
+  const user = req.body as ModelTypes.User;
   try {
-    const user = req.body as ModelTypes.User;
     // validate user object
     await signupFormSchema.validateAsync(user);
     // encrypt password
@@ -76,38 +77,9 @@ export const updateUser = asyncHandler(async (req, res) => {
   }
 });
 
-export const getTokenByLogin = asyncHandler(async (req, res) => {
+export const sessionLogin = asyncHandler(async (req, res) => {
   try {
-    const { username, password } = req.body;
-    // find user and compare password
-    const user = await User.findOne({ username });
-    if (user && (await bcrypt.compare(password, user.password))) {
-      res.json({
-        user,
-        token: generateToken(user._id.toString()),
-      });
-    } else {
-      // user not found or incorrect password
-      res.status(401);
-      res.json({
-        type: "InvalidCredentials",
-        message: "Username or Password is invalid",
-      });
-    }
-  } catch (err: any) {
-    // handle errors
-    console.log(err);
-    res.status(401);
-    res.json({
-      type: "UnknownError",
-      message: "Unkown Error Occured",
-      error: err,
-    });
-  }
-});
-
-export const addUserToSession = asyncHandler(async (req, res) => {
-  try {
+    await loginFormSchema.validateAsync(req.body);
     const { username, password } = req.body;
     // find user and compare password
     const user = await User.findOne({ username });
@@ -116,25 +88,15 @@ export const addUserToSession = asyncHandler(async (req, res) => {
       req.flash("success", "Logged in successfully");
       res.redirect("/movies");
     } else {
-      // user not found or incorrect password
-      res.status(401);
-      res.json({
-        type: "InvalidCredentials",
-        message: "Username or Password is invalid",
-      });
+      req.flash("error", "Username or Password is invalid");
+      res.redirect("/login");
     }
   } catch (err: any) {
-    // handle errors
-    console.log(err);
-    res.status(401);
-    res.json({
-      type: "UnknownError",
-      message: "Unkown Error Occured",
-      error: err,
-    });
+    if (Joi.isError(err)) {
+      err.details.forEach((detail) => {
+        req.flash("error", detail.message);
+      });
+      res.redirect("/login");
+    }
   }
 });
-//generate JWT
-const generateToken = (id: string) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET_KEY!, { expiresIn: "10d" });
-};

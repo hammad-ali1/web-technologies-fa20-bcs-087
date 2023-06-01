@@ -1,16 +1,9 @@
 import { Router } from "express";
-import {
-  getTokenByLogin,
-  getUsers,
-  addUser,
-  addUserToSession,
-  updateUser,
-} from "@controllers/user";
+import { getUsers, addUser, sessionLogin, updateUser } from "@controllers/user";
 
 const userRouter = Router();
 
-userRouter.route("/login").post(getTokenByLogin);
-userRouter.route("/session/login").post(addUserToSession);
+userRouter.route("/session/login").post(sessionLogin);
 userRouter.route("/").get(getUsers);
 userRouter.route("/").post(addUser);
 userRouter.route("/update/:id").post(updateUser);
