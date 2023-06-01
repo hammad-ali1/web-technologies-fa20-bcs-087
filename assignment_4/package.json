@@ -21,6 +21,7 @@
     "@types/express-session": "^1.17.7",
     "@types/jquery": "^3.5.16",
     "@types/jsonwebtoken": "^9.0.2",
+    "@types/morgan": "^1.9.4",
     "@types/node": "^18.16.0",
     "browser-sync": "^2.29.1",
     "jsonwebtoken": "^9.0.0",
@@ -46,6 +47,7 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
     "jquery": "^3.7.0",
-    "mongoose": "^7.1.1"
+    "mongoose": "^7.1.1",
+    "morgan": "^1.10.0"
   }
 }

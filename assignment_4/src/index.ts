@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import morgan from "morgan";
 import flash from "connect-flash";
 // import middlewares
 import { protect } from "@middlewares/auth";
@@ -65,12 +66,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(expressLayouts);
 app.use(flash());
+app.use(morgan("tiny"));
 
 // middleware for local variables
 app.use((req, res, next) => {
   res.locals.activeLink = req.url;
   res.locals.convertDate = ddMMyyyy;
   res.locals.messages = req.flash("success") || [];
+  res.locals.errors = req.flash("error") || [];
   next();
 });
 // make session variables available in views
@@ -99,6 +102,9 @@ app.get("/signup", (req, res) => {
 });
 app.get("/login", (req, res) => {
   res.render("login");
+});
+app.get("/user", (req, res) => {
+  res.render("user");
 });
 app.get("/", (req, res) => {
   res.redirect("/movies");

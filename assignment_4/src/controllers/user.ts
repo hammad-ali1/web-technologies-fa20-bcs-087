@@ -52,6 +52,35 @@ export const addUser = asyncHandler(async (req, res) => {
   }
 });
 
+export const updateUser = asyncHandler(async (req, res) => {
+  const userid = req.params.id;
+  const previousPassword = req.body.prevPassword;
+  if (!previousPassword) {
+    req.flash("error", "Please enter your previous password");
+    res.redirect("/user");
+    return;
+  }
+  const user = await User.findById(userid);
+  if (user) {
+    const isMatch = await bcrypt.compare(previousPassword, user.password);
+    if (!isMatch) {
+      req.flash("error", "Previous password is incorrect");
+      res.redirect("/user");
+      return;
+    }
+    user.username = req.body.username || user.username;
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(req.body.newPassword, salt);
+    user.firstName = req.body.firstName || user.firstName;
+    user.lastName = req.body.lastName || user.lastName;
+    user.save();
+    req.flash("success", "User updated successfully");
+    res.redirect("/user");
+  } else {
+    res.json({ message: "User not found" });
+  }
+});
+
 export const getTokenByLogin = asyncHandler(async (req, res) => {
   try {
     const { username, password } = req.body;

@@ -19,12 +19,8 @@ function submitSignupFormHandler() {
 
 function favMovieHandler() {
   $(document).on("click", ".fav-icon", function (e) {
-    // e.preventDefault();
     e.stopPropagation();
     $(this).children("i").toggleClass("fa-solid fa-regular");
-
-    // const movieId = $(this).data("movieid");
-    // api.addFavMovie(movieId);
   });
 }
 
