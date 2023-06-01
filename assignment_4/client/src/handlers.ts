@@ -28,8 +28,18 @@ function favMovieHandler() {
   });
 }
 
+function flashMsgsAnimation() {
+  // Slide down and fade in
+  $(".alert")
+    .hide()
+    .slideDown(500, function () {
+      $(this).delay(1000).slideUp(500);
+    });
+}
+
 const handlers = {
   submitSignupFormHandler,
   favMovieHandler,
+  flashMsgsAnimation,
 };
 export default handlers;
