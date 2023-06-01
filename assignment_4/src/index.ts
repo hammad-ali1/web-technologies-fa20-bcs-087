@@ -71,17 +71,13 @@ app.use(morgan("tiny"));
 // middleware for local variables
 app.use((req, res, next) => {
   res.locals.activeLink = req.url;
+  res.locals.user = req.session.user || {};
   res.locals.convertDate = ddMMyyyy;
   res.locals.messages = req.flash("success") || [];
   res.locals.errors = req.flash("error") || [];
   next();
 });
 
-// make session variables available in views
-app.use((req, res, next) => {
-  res.locals.user = req.session.user;
-  next();
-});
 // test protected route
 app.route("/protected").get(protect, (req, res) => {
   try {
