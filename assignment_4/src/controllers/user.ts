@@ -1,9 +1,10 @@
 import asyncHandler from "express-async-handler";
 import User from "@models/user";
 import { updateUserSchema } from "@validations/updateUser";
+import { signupFormSchema } from "@validations/signupForm";
+
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { Error } from "mongoose";
 import Joi from "joi";
 
 export const getUsers = asyncHandler(async (req, res) => {
@@ -15,6 +16,8 @@ export const addUser = asyncHandler(async (req, res) => {
   // get user object from req body
   try {
     const user = req.body as ModelTypes.User;
+    // validate user object
+    await signupFormSchema.validateAsync(user);
     // encrypt password
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(user.password, salt);
@@ -23,33 +26,17 @@ export const addUser = asyncHandler(async (req, res) => {
     await newUser.save();
     // attach user to session
     req.session.user = newUser;
-    res.json(newUser);
-  } catch (err: any) {
-    // handle errors
-    // handle validation errors
-    if (err instanceof Error.ValidationError) {
-      res.status(400);
-      res.json({
-        type: "ValidationError",
-        message: err.message,
-        error: err.errors,
+    req.flash("success", "Account created successfully");
+    res.redirect("/signup");
+  } catch (err) {
+    if (Joi.isError(err)) {
+      err.details.forEach((detail) => {
+        req.flash("error", detail.message);
       });
-      // handle duplicate key error
-    } else if (err.code === 11000) {
-      res.status(400);
-      res.json({
-        type: "MongoError",
-        message: "Username already exists",
-        error: err,
-      });
-      // handle other errors
+      res.redirect("/signup");
     } else {
-      res.status(500);
-      res.json({
-        type: "UnknownError",
-        message: "Unkown Error Occured",
-        error: err,
-      });
+      req.flash("error", "Server Error Occured");
+      res.redirect("/signup");
     }
   }
 });
@@ -80,11 +67,12 @@ export const updateUser = asyncHandler(async (req, res) => {
     req.flash("success", "User updated successfully");
     res.redirect("/user");
   } catch (err) {
-    if (Joi.isError(err))
+    if (Joi.isError(err)) {
       err.details.forEach((detail) => {
         req.flash("error", detail.message);
       });
-    res.redirect("/user");
+      res.redirect("/user");
+    }
   }
 });
 
