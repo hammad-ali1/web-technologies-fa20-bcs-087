@@ -102,6 +102,11 @@ app.get("/login", (req, res) => {
 app.get("/", (req, res) => {
   res.redirect("/movies");
 });
+app.get("/logout", (req, res) => {
+  req.session.user = null;
+  req.flash("success", "Logged out successfully");
+  res.redirect("/movies");
+});
 
 // start server
 app.listen(process.env.PORT, () => {

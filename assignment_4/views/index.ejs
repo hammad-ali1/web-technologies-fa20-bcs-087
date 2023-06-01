@@ -21,19 +21,7 @@
     </div>
   </div>
 </section>
-<% messages.forEach(msg => { %>
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-  <%= msg %>
-  <button
-    type="button"
-    class="btn close"
-    data-dismiss="alert"
-    aria-label="Close"
-  >
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-<% }) %>
+
 <section class="trending-list section-padding-top">
   <div class="container-fluid">
     <div class="movie-list">
@@ -92,4 +80,20 @@
       </div>
     </div>
   </div>
+</section>
+
+<section class="flash-msgs">
+  <% messages.forEach(msg => { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= msg %>
+    <button
+      type="button"
+      class="btn close"
+      data-dismiss="alert"
+      aria-label="Close"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% }) %>
 </section>

@@ -80,6 +80,12 @@ footer {
   }
 }
 
+.flash-msgs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+}
 // hide form-control outline
 .form-control:focus {
   box-shadow: none !important;
