@@ -10,7 +10,7 @@
   </form>
   <% } %>
   <img
-    src="http://image.tmdb.org/t/p/w220_and_h330_face/<%=item.poster_path%>"
+    src='<%= item.poster_path? "http://image.tmdb.org/t/p/w220_and_h330_face/"+item.poster_path : "/assets/placeholder.jpg"%>'
     class="img-fluid rounded"
   />
   <% if(hideContent === false){ %>
