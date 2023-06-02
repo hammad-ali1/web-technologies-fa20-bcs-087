@@ -7,5 +7,6 @@ export const appendLocals = asyncHandler((req, res, next) => {
   res.locals.convertDate = ddMMyyyy;
   res.locals.messages = req.flash("success") || [];
   res.locals.errors = req.flash("error") || [];
+  res.locals.formData = req.session.formData || {};
   next();
 });

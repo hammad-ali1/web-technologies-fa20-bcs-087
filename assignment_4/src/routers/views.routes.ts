@@ -4,7 +4,7 @@ const viewsRouter = Router();
 
 // add view routes
 viewsRouter.get("/signup", (req, res) => {
-  res.render("signup", { formData: res.locals.formData || {} });
+  res.render("signup");
 });
 
 viewsRouter.get("/login", (req, res) => {

@@ -28,16 +28,17 @@ export const addUser = asyncHandler(async (req, res) => {
     // attach user to session
     req.session.user = newUser;
     req.flash("success", "Account created successfully");
+    req.session.formData = {};
     res.redirect("/signup");
   } catch (err) {
     if (Joi.isError(err)) {
       err.details.forEach((detail) => {
         req.flash("error", detail.message);
       });
-      res.locals.formData = user;
+      req.session.formData = user;
       res.redirect("/signup");
     } else {
-      res.locals.formData = user;
+      req.session.formData = user;
       req.flash("error", "Server Error Occured");
       res.redirect("/signup");
     }
