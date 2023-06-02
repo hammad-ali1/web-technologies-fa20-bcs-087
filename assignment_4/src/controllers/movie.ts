@@ -61,6 +61,7 @@ export const getAllFavs = asyncHandler(async (req, res) => {
     const movies = await Movie.find({ user_id: req.session.user._id });
     res.render("favs", { movies });
   } else {
-    res.status(401).json({ success: false, msg: "Unauthorized" });
+    req.flash("error", "Please login to view favourite movies");
+    res.redirect("/movies");
   }
 });
