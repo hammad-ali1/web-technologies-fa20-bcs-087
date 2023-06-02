@@ -12,7 +12,6 @@ viewsRouter.get("/login", (req, res) => {
 });
 
 viewsRouter.get("/user", (req, res) => {
-  console.log("working");
   res.render("user");
 });
 
