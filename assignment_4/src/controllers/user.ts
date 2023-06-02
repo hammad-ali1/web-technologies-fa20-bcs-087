@@ -34,8 +34,10 @@ export const addUser = asyncHandler(async (req, res) => {
       err.details.forEach((detail) => {
         req.flash("error", detail.message);
       });
+      res.locals.formData = user;
       res.redirect("/signup");
     } else {
+      res.locals.formData = user;
       req.flash("error", "Server Error Occured");
       res.redirect("/signup");
     }

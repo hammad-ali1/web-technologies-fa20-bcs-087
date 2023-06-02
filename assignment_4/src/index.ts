@@ -14,7 +14,7 @@ import movieRouter from "@routers/movie.routes";
 import searchRouter from "@routers/search.routes";
 import userRouter from "@routers/user.routes";
 import showRouter from "@routers/show.routes";
-import viewsRouter from "@routers/show.routes";
+import viewsRouter from "@routers/views.routes";
 
 const app = express();
 // add cors
@@ -74,11 +74,12 @@ app.use(morgan("tiny"));
 app.use(appendLocals);
 
 // add routers
+
+app.use("/", viewsRouter);
 app.use("/movies", movieRouter);
 app.use("/search", searchRouter);
 app.use("/users", userRouter);
 app.use("/shows", showRouter);
-app.use("/", viewsRouter);
 
 // index route
 app.get("/", (req, res) => {
