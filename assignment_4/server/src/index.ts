@@ -64,19 +64,6 @@ else console.log("sessionStore is not defined");
 // set view engine
 app.set("view engine", "ejs");
 
-// serve react static files
-app.get("/admin", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "..", "client", "build", "index.html")
-  );
-});
-app.get("/admin/*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "..", "client", "build", "index.html")
-  );
-});
-app.use(express.static(path.join(__dirname, "..", "..", "client", "build")));
-
 // add third-party middlewares
 app.use(express.static("public"));
 app.use(express.json());
@@ -102,6 +89,18 @@ app.get("/", (req, res) => {
   res.redirect("/movies");
 });
 
+// serve react static files
+app.get("/admin", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "client", "build", "index.html")
+  );
+});
+app.get("/admin/*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "client", "build", "index.html")
+  );
+});
+app.use(express.static(path.join(__dirname, "..", "..", "client", "build")));
 // add default error handler
 // @ts-ignore
 app.use((err, req, res, next) => {

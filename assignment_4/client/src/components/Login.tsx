@@ -10,14 +10,18 @@ import {
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AccountCircle, LockRounded } from "@mui/icons-material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SignUpImage from "../assets/signup.jpg";
 import api from "../api/api";
 type loginForm = {
   username: string;
   password: string;
 };
-function Login() {
+function Login({
+  setActiveTab,
+}: {
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>;
+}) {
   const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
@@ -30,9 +34,13 @@ function Login() {
 
   const handleFormSubmit = () => {
     api.login(loginForm.username, loginForm.password).then((res) => {
-      navigate("/", { replace: true });
+      setActiveTab(0);
+      navigate("/admin", { replace: true });
     });
   };
+  useEffect(() => {
+    setActiveTab(1);
+  }, [setActiveTab]);
   return (
     <Stack direction="row" padding="10px">
       <Box flex={0.5}>

@@ -23,8 +23,12 @@ const api = {
     localStorage.setItem("token", response.data.token);
   },
   getAllUsers: async () => {
-    const response = await axios.get("users");
-    return response.data;
+    try {
+      const response = await axios.get("users");
+      return response.data;
+    } catch (error) {
+      return [];
+    }
   },
   deleteUser: async (id: string) => {
     await axios.delete(`users/${id}`);

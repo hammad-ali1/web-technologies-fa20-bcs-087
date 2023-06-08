@@ -12,9 +12,16 @@ class User {
   firstName: string = "";
   lastName: string = "";
 }
-function Home() {
+function Home({
+  setActiveTab,
+}: {
+  setActiveTab: React.Dispatch<React.SetStateAction<number>>;
+}) {
   const [users, setUsers] = useState([] as User[]);
-  const [gridApi, setGridApi] = useState(null);
+  useEffect(() => {
+    setActiveTab(0);
+  }, [setActiveTab]);
+  const [, setGridApi] = useState(null);
   const handleDelete = (id: string) => {
     api.deleteUser(id).then(() => {
       api.getAllUsers().then((res) => {
@@ -68,6 +75,9 @@ function Home() {
   useEffect(() => {
     api.getAllUsers().then(setUsers);
   }, []);
+  if (!localStorage.getItem("token")) {
+    return <div>Login using admin account</div>;
+  }
   return (
     <div
       className="ag-theme-alpine"

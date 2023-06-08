@@ -1,20 +1,47 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./components/Login";
 import Home from "./components/Home";
-import { useEffect } from "react";
+import { useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
   const navigation = useNavigate();
-  useEffect(() => {
-    if (!localStorage.getItem("token")) {
-      navigation("/login", { replace: true });
-    }
-  }, [navigation]);
+  const [activeTab, setActiveTab] = useState(0);
+  const navLinks = [
+    {
+      text: "Home",
+      onClickHandler: () => {
+        navigation("/admin");
+      },
+    },
+    {
+      text: "Login",
+      onClickHandler: () => {
+        navigation("/admin/login");
+      },
+    },
+    {
+      text: "Log Out",
+      onClickHandler: () => {
+        localStorage.removeItem("token");
+        navigation("/admin/login");
+      },
+    },
+  ];
+  if (localStorage.getItem("token")) {
+  }
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
-    </Routes>
+    <div>
+      <Navbar navLinks={navLinks} activeTab={activeTab} />
+      <Routes>
+        <Route path="/admin" element={<Home setActiveTab={setActiveTab} />} />
+        <Route
+          path="/admin/login"
+          element={<Login setActiveTab={setActiveTab} />}
+        />
+      </Routes>
+    </div>
   );
 }
 
