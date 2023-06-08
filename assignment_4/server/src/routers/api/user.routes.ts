@@ -8,8 +8,13 @@ import { protectRoute } from "@middlewares/protectRoute";
 const UserRouter = Router();
 
 UserRouter.get("/", protectRoute, async (req, res) => {
-  const users = await User.find();
+  const users = await User.find({ isAdmin: false }).select("-password");
   res.json(users);
+});
+
+UserRouter.delete("/:id", protectRoute, async (req, res) => {
+  const deletedUser = await User.findByIdAndDelete(req.params.id);
+  res.json(deletedUser);
 });
 
 UserRouter.post("/login", async (req, res) => {
