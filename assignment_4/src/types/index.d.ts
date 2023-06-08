@@ -4,5 +4,6 @@ declare namespace ModelTypes {
     password: string;
     firstName: string;
     lastName: string;
+    isAdmin: boolean;
   };
 }

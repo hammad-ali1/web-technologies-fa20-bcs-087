@@ -15,7 +15,8 @@ import searchRouter from "@routers/search.routes";
 import userRouter from "@routers/user.routes";
 import showRouter from "@routers/show.routes";
 import viewsRouter from "@routers/views.routes";
-
+// import api routers
+import apiUserRouter from "@routers/api/user.routes";
 const app = express();
 // add cors
 app.use(require("cors")());
@@ -80,6 +81,7 @@ app.use("/movies", movieRouter);
 app.use("/search", searchRouter);
 app.use("/users", userRouter);
 app.use("/shows", showRouter);
+app.use("/api/users", apiUserRouter);
 
 // index route
 app.get("/", (req, res) => {

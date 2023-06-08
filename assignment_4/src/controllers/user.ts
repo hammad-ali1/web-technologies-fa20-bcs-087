@@ -8,11 +8,6 @@ import {
 import bcrypt from "bcryptjs";
 import Joi from "joi";
 
-export const getUsers = asyncHandler(async (req, res) => {
-  const users = await User.find();
-  res.json(users);
-});
-
 export const addUser = asyncHandler(async (req, res) => {
   // get user object from req body
   const user = req.body as ModelTypes.User;

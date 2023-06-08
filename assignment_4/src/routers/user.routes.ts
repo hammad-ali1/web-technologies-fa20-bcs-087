@@ -1,10 +1,9 @@
 import { Router } from "express";
-import { getUsers, addUser, sessionLogin, updateUser } from "@controllers/user";
+import { addUser, sessionLogin, updateUser } from "@controllers/user";
 
 const userRouter = Router();
 
 userRouter.route("/session/login").post(sessionLogin);
-userRouter.route("/").get(getUsers);
 userRouter.route("/").post(addUser);
 userRouter.route("/update/:id").post(updateUser);
 
