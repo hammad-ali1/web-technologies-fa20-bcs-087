@@ -44,6 +44,11 @@ VoltageReadingsRouter.delete("/:id", async (req, res) => {
     const voltageReading = await VoltageReading.findByIdAndDelete(
       req.params.id
     );
+    if (voltageReading) {
+      res.json(voltageReading);
+    } else {
+      res.status(404).json({ error: "Voltage Reading Not Found" });
+    }
   } catch (err) {
     res.status(500).json({ error: err, message: "Server Error" });
   }
