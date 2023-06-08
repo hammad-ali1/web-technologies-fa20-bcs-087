@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/styles.min.css" />
+
     <script src="../js/bundle.js"></script>
     <title>Lab Terminal FA20-BCS-087</title>
   </head>
@@ -12,7 +18,13 @@
     <section id="voltageDetails" class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-4 d-flex justify-content-center">
-          <button class="btn btn-info rounded-pill m-auto">Add Voltage</button>
+          <button
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            class="btn btn-info rounded-pill m-auto"
+          >
+            Add Voltage
+          </button>
         </div>
       </div>
       <div class="row">
@@ -28,6 +40,71 @@
             </thead>
             <tbody></tbody>
           </table>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Modal title
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="recipieName" class="form-label">Recipie Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="recipieName"
+                  placeholder="Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="recipieBody" class="form-label">Recipie Body</label>
+                <textarea
+                  type="text"
+                  class="form-control"
+                  id="recipieBody"
+                  placeholder="Body"
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button id="addRecipieBtn" type="button" class="btn btn-primary">
+                Add
+              </button>
+              <button
+                id="updateRecipieBtn"
+                type="button"
+                class="btn btn-primary d-none"
+              >
+                Update
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
