@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 //import routers
 import VoltageReadingsRouter from "@routers/VoltageReadings.routes";
 
@@ -8,6 +9,7 @@ const config = {
   PORT: 5000,
 };
 const app = express();
+app.use(cors());
 
 // connect mongo
 mongoose
@@ -24,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // add routers
-app.use("/voltage", VoltageReadingsRouter);
+app.use("/api/voltage", VoltageReadingsRouter);
 // start server
 app.listen(config.PORT, () => {
   console.log(`Server started at http://localhost:${config.PORT}`);

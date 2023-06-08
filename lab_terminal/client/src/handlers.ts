@@ -1,8 +1,16 @@
-function favMovieHandler() {
-  $(document).on("click", ".fav-icon", function (e) {
-    e.stopPropagation();
-    $(this).children("i").toggleClass("fa-solid fa-regular");
-  });
+import api from "./api";
+import * as $ from "jquery";
+
+async function renderVoltageReadings() {
+  const voltages = await api.getVoltageReadings();
+  $("#voltageDetails tbody").html(
+    voltages
+      .map(
+        (voltage) =>
+          `<tr><td>${voltage.max}</td><td>${voltage.min}</td><td>${voltage.avg}</td><tr>`
+      )
+      .join("")
+  );
 }
 
 function flashMsgsAnimation() {
@@ -15,7 +23,7 @@ function flashMsgsAnimation() {
 }
 
 const handlers = {
-  favMovieHandler,
+  renderVoltageReadings,
   flashMsgsAnimation,
 };
 export default handlers;

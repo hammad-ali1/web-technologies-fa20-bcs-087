@@ -1,8 +1,7 @@
 import handlers from "./handlers";
 import * as $ from "jquery";
-
 $(function registerHandlers() {
-  console.log("Registering handlers...");
+  handlers.renderVoltageReadings();
 });
 
 // @ts-ignore
