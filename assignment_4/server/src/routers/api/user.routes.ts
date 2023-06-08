@@ -12,7 +12,7 @@ UserRouter.get("/", protectRoute, async (req, res) => {
   res.json(users);
 });
 
-UserRouter.get("/login", async (req, res) => {
+UserRouter.post("/login", async (req, res) => {
   try {
     await loginFormSchema.validateAsync(req.body);
     const { username, password } = req.body;
