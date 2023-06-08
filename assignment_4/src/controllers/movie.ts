@@ -7,6 +7,18 @@ export const getMovies = asyncHandler(async (req, res) => {
   try {
     const movies = await api.fetchTrendingMovies(1, "day");
     const shows = await api.fetchTrendingShows(1, "day");
+    // @ts-ignore
+    let favMovies = [];
+    if (req.session.user) {
+      favMovies = await Movie.find({ user_id: req.session.user._id });
+      movies.results.forEach((movie) => {
+        // @ts-ignore
+        if (favMovies.find((fav) => fav.id === movie.id)) {
+          //@ts-ignore
+          movie.isFav = true;
+        }
+      });
+    }
     let favs: any = [];
     if (req.session.user) {
       favs = await Movie.find({ user_id: req.session.user._id });
@@ -28,6 +40,16 @@ export const getMovies = asyncHandler(async (req, res) => {
 
 export const getMovie = asyncHandler(async (req, res) => {
   const movie = await api.fetchMovie(req.params.id);
+  if (req.session.user) {
+    const isFavPresent = await Movie.findOne({
+      user_id: req.session.user._id,
+      id: req.params.id,
+    });
+    if (isFavPresent) {
+      // @ts-ignore
+      movie.isFav = true;
+    }
+  }
   res.render("movie", { movie });
 });
 

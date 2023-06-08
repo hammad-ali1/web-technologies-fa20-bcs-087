@@ -9,7 +9,7 @@
       <div class="movie-content">
         <div class="movie-thumb">
           <%-include('components/list-card', {item : movie, hover: false,
-          hideContent : true, isShow : false, isFavorite : false}) %>
+          hideContent : true, isShow : false, isFavorite : movie.isFav}) %>
         </div>
         <div class="movie-text">
           <h1 class="movie-title text-wrap"><%= movie.original_title %></h1>
