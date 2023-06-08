@@ -32,7 +32,7 @@
       <div class="scroller pt-3">
         <% movies.results.forEach(item => { %> <%-
         include('components/list-card', {item, hover:true, hideContent: false,
-        isShow : false}) %> <% })%>
+        isShow : false, isFavorite : false}) %> <% })%>
       </div>
     </div>
   </div>

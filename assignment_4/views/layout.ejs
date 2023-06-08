@@ -152,19 +152,17 @@
       </button>
     </div>
     <% }) %>
-  </section>
 
-  <section class="flash-msgs">
     <% errors.forEach(msg => { %>
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-      <%= msg %>
-      <button
-        type="button"
-        class="btn-close"
-      >
-      </button>
-    </div>
-    <% }) %>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= msg %>
+        <button
+          type="button"
+          class="btn-close"
+        >
+        </button>
+      </div>
+      <% }) %>
   </section>
 
   </body>

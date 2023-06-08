@@ -3,7 +3,7 @@
     <% movies.forEach(movie => { %>
     <div class="col-2">
       <%-include('components/list-card', {item : movie, hover:true, hideContent:
-      true, isShow : false}) %>
+      true, isShow : false, isFavorite : true}) %>
     </div>
     <% }) %>
   </div>
