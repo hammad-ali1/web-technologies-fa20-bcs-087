@@ -65,6 +65,9 @@
               <a class="nav-link <%= activeLink == "/movies/favs/all"? "active" : ""%>" aria-current="page" href="/movies/favs/all">Favorites</a>
             </li>
           <% } %>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/admin">Admin</a>
+          </li>
         </ul>
         <% if (Object.keys(user).length) { %>
           <ul class="navbar-nav">

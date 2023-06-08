@@ -17,6 +17,7 @@ import showRouter from "@routers/show.routes";
 import viewsRouter from "@routers/views.routes";
 // import api routers
 import apiUserRouter from "@routers/api/user.routes";
+import path from "path";
 const app = express();
 // add cors
 app.use(require("cors")());
@@ -62,6 +63,19 @@ else console.log("sessionStore is not defined");
 
 // set view engine
 app.set("view engine", "ejs");
+
+// serve react static files
+app.get("/admin", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "client", "build", "index.html")
+  );
+});
+app.get("/admin/*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "client", "build", "index.html")
+  );
+});
+app.use(express.static(path.join(__dirname, "..", "..", "client", "build")));
 
 // add third-party middlewares
 app.use(express.static("public"));
