@@ -1,0 +1,92 @@
+<section class="container-fluid">
+  <form action="/search" class="hero-search mt-1">
+    <input
+      name="query"
+      class="form-control hide-outline rounded-pill py-2 px-3"
+      type="text"
+      placeholder="Search for movie, tv show, person..."
+      value="<%= searchTerm %>"
+    />
+    <input type="text" class="d-none" name="searchType" value="movies" />
+    <button type="submit" class="btn btn-info rounded-pill px-3">Search</button>
+  </form>
+</section>
+<section class="mt-5">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 search-info">
+        <ul class="list-group">
+          <h3
+            class="list-group-item text-center bg-info text-white py-3 fs-5 m-0"
+          >
+            Search Results
+          </h3>
+          <div
+            class="list-group-item d-flex justify-content-between <%= searchType == 'movies' && 'bg-darkerGrey' %>"
+          >
+            <form action="/search">
+              <input
+                type="text"
+                class="d-none"
+                name="query"
+                value="<%= searchTerm %>"
+              />
+              <input
+                type="text"
+                class="d-none"
+                name="searchType"
+                value="movies"
+              />
+              <button class="btn border-0" type="submit">Movies</button>
+            </form>
+            <div>
+              <span
+                class="badge bg-lightGrey px-3 text-dark rounded-pill fw-normal lh-sm"
+                ><%=movies.total_results %></span
+              >
+            </div>
+          </div>
+          <div
+            class="list-group-item d-flex justify-content-between <%= searchType == 'shows' && 'bg-darkerGrey' %>"
+          >
+            <form action="/search">
+              <input
+                type="text"
+                class="d-none"
+                name="query"
+                value="<%= searchTerm %>"
+              />
+              <input
+                type="text"
+                class="d-none"
+                name="searchType"
+                value="shows"
+              />
+              <button class="btn border-0" type="submit">TV Shows</button>
+            </form>
+            <div>
+              <span
+                class="badge bg-lightGrey px-3 text-dark fw-normal rounded-pill lh-sm"
+                ><%= shows.total_results %></span
+              >
+            </div>
+          </div>
+          <div class="list-group-item d-flex justify-content-between">
+            <div>People</div>
+            <span
+              class="badge bg-lightGrey px-3 text-dark fw-normal rounded-pill lh-sm"
+              >14</span
+            >
+          </div>
+        </ul>
+      </div>
+      <div class="col-9 search-results">
+        <% if (searchType === "movies") { %> <% movies.results.forEach(movie=>{
+        %> <%- include('components/search-card', {item : movie, isShow : false})
+        %> <% }) %> <% }else if (searchType === "shows") { %> <%
+        shows.results.forEach(show=>{ %> <%- include('components/search-card',
+        {item : show, isShow : true}) %> <% })} %>
+      </div>
+    </div>
+  </div>
+</section>

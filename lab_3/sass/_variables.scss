@@ -1,0 +1,21 @@
+//change bootstrap colors here
+// e.g
+// $primary: #007bff;
+
+// import bootstrap variables & functions
+@import "../node_modules/bootstrap/scss/_functions.scss";
+@import "../node_modules/bootstrap/scss/_variables.scss";
+
+$lightGrey: rgb(227, 227, 227);
+$darkerGrey: rgb(200, 200, 200);
+$tmdbDarkBlue: rgb(3, 37, 65);
+$tmdbLightBlue: rgb(1, 180, 228);
+// declare my custom theme
+$my-theme-colors: (
+  "lightGrey": rgb(227, 227, 227),
+  "darkerGrey": rgb(200, 200, 200),
+  "tmdbDarkBlue": rgb(3, 37, 65),
+  "tmdbLightBlue": rgb(1, 180, 228),
+);
+
+$theme-colors: map-merge($theme-colors, $my-theme-colors);

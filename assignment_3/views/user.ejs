@@ -1,0 +1,67 @@
+<section class="user">
+  <div class="container-fluid">
+    <div class="row justify-content-center my-4">
+      <form method="post" action="/users/update/<%= user._id %>" class="col-8">
+        <h2 class="h4">Update your account</h2>
+        <div class="mb-3">
+          <label for="userName" class="form-label">Username</label>
+          <input
+            type="text"
+            id="userName"
+            name="username"
+            class="form-control"
+            placeholder="username"
+            value="<%= user.username %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="prevPassword" class="form-label">Previous Password</label>
+          <input
+            type="text"
+            id="prevPassword"
+            name="prevPassword"
+            class="form-control"
+            placeholder="Previous Password"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="newPassword" class="form-label">New Password</label>
+          <input
+            type="text"
+            id="newPassword"
+            name="newPassword"
+            class="form-control"
+            placeholder="New Password"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            class="form-control"
+            placeholder="First Name"
+            value="<%= user.firstName %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            class="form-control"
+            placeholder="Last Name"
+            value="<%= user.lastName %>"
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <button id="updateAccountBtn" class="btn btn-info rounded-pill w-100">
+            Update Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

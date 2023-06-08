@@ -1,0 +1,21 @@
+<div class="card card-search shadow-sm mb-3">
+  <div class="wrapper">
+    <a class="card-thumb" href='<%= isShow ? "/shows/"+item.id : "/movies/" + item.id%>'>
+      <img
+        src='<%= item.poster_path? "http://image.tmdb.org/t/p/w220_and_h330_face/"+item.poster_path : "/assets/placeholder.jpg"%>'
+        class="img-fluid rounded-start"
+      />
+    </a>
+    <div class="card-body">
+    <a class="card-title" href="/movies/<%=item.id%>">
+      <h6 class="m-0"><%= isShow ? item.name : item.title %></h6>
+    </a>
+      <p class="card-text date">
+        <div class="text-muted">
+          <%=isShow ? convertDate(item.first_air_date) :
+      convertDate(item.release_date)%></div>
+      </p>
+      <p class="card-text overview"><%= item.overview %></p>
+    </div>
+  </div>
+</div>

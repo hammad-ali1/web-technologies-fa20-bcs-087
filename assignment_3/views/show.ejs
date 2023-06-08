@@ -1,0 +1,23 @@
+<section class="movie-details has-bg-img">
+  <img
+    class="bg-img"
+    src="http://image.tmdb.org/t/p/w1920_and_h800_multi_faces/<%=show.backdrop_path%>"
+    alt=""
+  />
+  <div class="bg-overlay">
+    <div class="container-fluid py-5">
+      <div class="movie-content">
+        <div class="movie-thumb">
+          <%-include('components/list-card', {item : show, hover: false,
+          hideContent : true, isShow : true}) %>
+        </div>
+        <div class="movie-text">
+          <h1 class="movie-title text-wrap"><%= show.name %></h1>
+          <p class="fst-italic"><%= show.tagline %></p>
+          <h2 class="h5">Overview</h2>
+          <p><%= show.overview %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<section class="login">
+  <div class="container-fluid">
+    <div class="row justify-content-center my-4">
+      <form
+        method="post"
+        action="/users/session/login"
+        id="loginForm"
+        class="col-8"
+      >
+        <h2 class="h4">Login to Account</h2>
+        <div class="mb-3">
+          <label for="userName" class="form-label">Username</label>
+          <input
+            type="text"
+            id="userName"
+            name="username"
+            class="form-control test"
+            placeholder="username"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="text"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="password"
+            required
+          />
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button id="loginBtn" class="btn btn-info rounded-pill w-100">
+            Log In
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

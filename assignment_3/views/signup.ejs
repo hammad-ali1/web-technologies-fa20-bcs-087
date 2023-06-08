@@ -1,0 +1,76 @@
+<section class="signup">
+  <div class="container-fluid">
+    <div class="row justify-content-center my-4">
+      <form method="post" action="/users" class="col-8">
+        <h2 class="h4">Sign up for an account</h2>
+        <div class="mb-3">
+          <label for="userName" class="form-label">Username</label>
+          <input
+            type="text"
+            id="userName"
+            name="username"
+            class="form-control"
+            placeholder="username"
+            required
+            value="<%= formData.username %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="text"
+            id="password"
+            name="password"
+            class="form-control"
+            placeholder="password"
+            required
+            value="<%= formData.password %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="text"
+            id="confirmPassword"
+            name="confirmPassword"
+            class="form-control"
+            placeholder="Confirm Password"
+            required
+            value="<%= formData.confirmPassword %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            class="form-control"
+            placeholder="First Name"
+            required
+            value="<%= formData.firstName %>"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            class="form-control"
+            placeholder="Last Name"
+            required
+            value="<%= formData.lastName %>"
+          />
+        </div>
+        <div class="d-flex justify-content-center">
+          <button id="signupBtn" class="btn btn-info rounded-pill w-100">
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

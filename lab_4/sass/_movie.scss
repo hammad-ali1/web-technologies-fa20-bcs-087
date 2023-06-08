@@ -1,0 +1,17 @@
+.movie {
+  &-content {
+    display: flex;
+    max-width: 100%;
+    color: $light;
+  }
+  &-thumb {
+    flex: 0 0 250px;
+  }
+  &-text {
+    margin-left: 20px;
+  }
+  &-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}

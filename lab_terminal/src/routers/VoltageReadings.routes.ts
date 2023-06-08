@@ -17,7 +17,9 @@ VoltageReadingsRouter.get("/:id", async (req, res) => {
     } else {
       res.status(404).json({ error: "Voltage Reading Not Found" });
     }
-  } catch (err) {}
+  } catch (err) {
+    res.status(500).json({ error: err, message: "Server Error" });
+  }
 });
 
 VoltageReadingsRouter.post("/", async (req, res) => {
