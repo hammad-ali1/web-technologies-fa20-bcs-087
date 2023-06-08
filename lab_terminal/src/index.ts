@@ -4,6 +4,7 @@ import expressLayouts from "express-ejs-layouts";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 import flash from "connect-flash";
+import cookie from "cookie-parser";
 // import middlewares
 import { appendLocals } from "@middlewares/locals";
 //import routers
@@ -49,6 +50,9 @@ app.use(
 
 // set view engine
 app.set("view engine", "ejs");
+
+// set cookie parser
+app.use(cookie());
 
 // add third-party middlewares
 app.use(express.static("public"));
