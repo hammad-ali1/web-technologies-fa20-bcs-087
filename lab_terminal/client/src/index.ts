@@ -3,6 +3,7 @@ import * as $ from "jquery";
 $(function registerHandlers() {
   handlers.renderVoltageReadings();
   handlers.deleteVoltageReading();
+  handlers.voltageFormSubmit();
 });
 
 // @ts-ignore

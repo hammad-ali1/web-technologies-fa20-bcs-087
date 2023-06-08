@@ -3,6 +3,7 @@ import * as $ from "jquery";
 
 async function renderVoltageReadings() {
   const voltages = await api.getVoltageReadings();
+  $("#voltageDetails tbody").html("");
   $("#voltageDetails tbody").html(
     voltages
       .map(
@@ -25,18 +26,21 @@ async function deleteVoltageReading() {
   );
 }
 
-function flashMsgsAnimation() {
-  // Slide down and fade in
-  $(".alert")
-    .hide()
-    .slideDown(500, function () {
-      $(this).delay(1000).slideUp(500);
-    });
+async function voltageFormSubmit() {
+  $("#addVoltageForm").on("submit", async function (e) {
+    e.preventDefault();
+    const max = $("#max").val();
+    const min = $("#min").val();
+    const avg = $("#avg").val();
+    // @ts-ignore
+    await api.addVoltageReading({ max, min, avg });
+    await renderVoltageReadings();
+  });
 }
 
 const handlers = {
   renderVoltageReadings,
   deleteVoltageReading,
-  flashMsgsAnimation,
+  voltageFormSubmit,
 };
 export default handlers;
