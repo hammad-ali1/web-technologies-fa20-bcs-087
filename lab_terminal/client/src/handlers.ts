@@ -7,9 +7,21 @@ async function renderVoltageReadings() {
     voltages
       .map(
         (voltage) =>
-          `<tr><td>${voltage.max}</td><td>${voltage.min}</td><td>${voltage.avg}</td><tr>`
+          `<tr><td>${voltage.max}</td><td>${voltage.min}</td><td>${voltage.avg}</td><td><button id="${voltage._id}" class="btn btn-danger">Delete</button></td><tr>`
       )
       .join("")
+  );
+}
+
+async function deleteVoltageReading() {
+  $("#voltageDetails tbody").on(
+    "click",
+    "button.btn-danger",
+    async function () {
+      const idToDelete = $(this).attr("id");
+      await api.deleteVoltageReading(idToDelete!);
+      await renderVoltageReadings();
+    }
   );
 }
 
@@ -24,6 +36,7 @@ function flashMsgsAnimation() {
 
 const handlers = {
   renderVoltageReadings,
+  deleteVoltageReading,
   flashMsgsAnimation,
 };
 export default handlers;

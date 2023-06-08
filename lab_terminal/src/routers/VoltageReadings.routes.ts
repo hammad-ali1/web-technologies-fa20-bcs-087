@@ -23,8 +23,18 @@ VoltageReadingsRouter.post("/", async (req, res) => {
         message: "Invalid Voltage Reading Data",
       });
     } else {
-      res.json({ error: err, message: "Server Error" });
+      res.status(500).json({ error: err, message: "Server Error" });
     }
+  }
+});
+
+VoltageReadingsRouter.delete("/:id", async (req, res) => {
+  try {
+    const voltageReading = await VoltageReading.findByIdAndDelete(
+      req.params.id
+    );
+  } catch (err) {
+    res.status(500).json({ error: err, message: "Server Error" });
   }
 });
 export default VoltageReadingsRouter;

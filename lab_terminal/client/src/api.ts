@@ -9,6 +9,9 @@ const api = {
     const response = await axios.get("/voltage");
     return response.data as ModelTypes.VoltageReading[];
   },
+  deleteVoltageReading: async (id: string) => {
+    const response = await axios.delete(`/voltage/${id}`);
+  },
 };
 
 export default api;
