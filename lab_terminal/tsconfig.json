@@ -11,7 +11,7 @@
     "paths": {
       "@routers/*": ["routers/*"],
       "@models/*": ["models/*"],
-      "@middlewares/*": ["middlewares/*"]
+      "@validations/*": ["validations/*"]
     }
   },
   "ts-node": {
