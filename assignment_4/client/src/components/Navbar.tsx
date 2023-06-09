@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AppBar, Grid, Tab, Tabs, Toolbar, Stack } from "@mui/material";
-
+import LogoImg from "../assets/logo-dark.svg";
 //Types
 export type NavLink = {
   text: string;
@@ -28,6 +28,20 @@ function Navbar({ navLinks, activeTab }: PropTypes) {
         <Toolbar>
           <Grid xs={8} item={true}>
             <Stack direction="row" justifyContent="flex-start">
+              <a
+                href="/movies"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  paddingRight: "10px",
+                }}
+              >
+                <img
+                  src={LogoImg}
+                  alt="logo"
+                  style={{ width: "150px", margin: "0" }}
+                />
+              </a>
               <Tabs
                 sx={{ placeContent: "flex-end" }}
                 value={tabValue}

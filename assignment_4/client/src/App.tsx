@@ -3,6 +3,7 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
+import "./App.css";
 
 function App() {
   const navigation = useNavigate();

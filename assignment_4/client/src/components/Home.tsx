@@ -24,9 +24,7 @@ function Home({
   const [, setGridApi] = useState(null);
   const handleDelete = (id: string) => {
     api.deleteUser(id).then(() => {
-      api.getAllUsers().then((res) => {
-        setUsers(res);
-      });
+      setUsers(users.filter((user) => user._id !== id));
     });
   };
   const columnDefs = [
