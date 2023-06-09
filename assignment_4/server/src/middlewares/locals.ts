@@ -13,7 +13,7 @@ export const appendLocals = asyncHandler(async (req, res, next) => {
   if (req.session.user) {
     const user = await User.findById(req.session.user._id);
     if (!user) {
-      req.session.destroy(() => {});
+      req.session.user = null;
       res.locals.user = {};
     }
   }
